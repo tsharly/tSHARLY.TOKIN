@@ -112,13 +112,13 @@ rank = ' ادمن في البوت 😺'
 else
 rank = 'مجرد عضو 😹'
 end
-return '🌟|¦ رتبتك : '..rank
+return '🌟|رتبتك : '..rank
 end
 ------------[lock and unlock reply in pv ]---------
     
 if (msg.to.type == "private") and not is_sudo(msg) then
 send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/BOSSTOKEN \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
-local pvmsg ="🌟|ألاسم :"..name_user.."\n🌟|الايدي : ["..msg.from.id.."]\n🌟|ألمعرف : ["..usernamex.."]\n 📥الرسالة: \n\n"..msg.text
+local pvmsg ="🌟|الاسم :"..name_user.."\n🌟|الايدي : ["..msg.from.id.."]\n🌟|المعرف : ["..usernamex.."]\n 📥الرسالة: \n\n"..msg.text
 
 send_msg(60809019, pvmsg, nil, 'md')
 
@@ -231,11 +231,11 @@ return  su[math.random(#su)]
 elseif not is_sudo(msg) and w == "زعيم" and not ww then 
 return  ss97[math.random(#ss97)]  
 elseif w == "كول" and ww then
-if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
+if string.len(ww) > 60 then return "🌟|ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
 if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
  send_msg(msg.to.id, '<code>'..ww..'</code>', nil, 'html')
 elseif w == "كله" and ww then
-if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
+if string.len(ww) > 60 then return "🌟|ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
 if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
 if msg.reply_id then
  send_msg(msg.to.id, '<code>'..ww..'</code>',msg.reply_id, 'html')
