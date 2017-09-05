@@ -1,4 +1,4 @@
--- by omer alsaray TEle _ @blcon
+-- BY @TH3BOSS
 do 
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
@@ -8,8 +8,7 @@ local function plugin_enabled( name )
   end 
   return false 
 end 
--- by omer alsaray TEle _ @blcon
-
+-- BY @TH3BOSS
 local function plugin_exists( name ) 
   for k,v in pairs(plugins_names()) do 
     if name..'.lua' == v then 
@@ -23,45 +22,45 @@ local function list_all_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  ✔ enabled, ❌ disabled
-    local status = '*|✖️|>*'
+    --  ☑️ enabled, ❌ disabled
+    local status = '*|❌|>*'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '*|✔|>*'
+        status = '*|☑️|>*'
       end
       nact = nact+1
     end
-    if not only_enabled or status == '*|✔|>*'then
+    if not only_enabled or status == '*|☑️|>*'then
       -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..nsum..'-'..status..' '..check_markdown(v)..' \n'
     end
   end
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 🌐 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
   return text
 end
 local function list_plugins(only_enabled) 
   local text = '' 
   local nsum = 0 
   for k, v in pairs( plugins_names( )) do 
-    local status = '🚫' 
+    local status = '❌' 
     nsum = nsum+1 
     nact = 0  
     for k2, v2 in pairs(_config.enabled_plugins) do 
       if v == v2..'.lua' then 
-        status = '✔' 
+        status = '☑️' 
       end 
       nact = nact+1 
     end 
-    if not only_enabled or status == '✔' then 
+    if not only_enabled or status == '☑️' then 
       v = string.match (v, "(.*)%.lua") 
       text = text..status..'➠ '..v..'\n' 
     end 
   end 
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 🌐 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
   return text 
 end 
 
@@ -70,12 +69,11 @@ local function reload_plugins( )
   load_plugins() 
   return list_plugins(true) 
 end 
--- by omer alsaray TEle _ @blcon
-
+-- BY @TH3BOSS
 local function enable_plugin( plugin_name ) 
   print('checking if '..plugin_name..' exists') 
   if plugin_enabled(plugin_name) then 
-    return '♨️ تم تفعيل الملف 💯\n➠ '..plugin_name..' ' 
+    return '♨️ تم تفعيل الملف 🌐\n➠ '..plugin_name..' ' 
   end 
   if plugin_exists(plugin_name) then 
     table.insert(_config.enabled_plugins, plugin_name) 
@@ -83,32 +81,31 @@ local function enable_plugin( plugin_name )
     save_config() 
     return reload_plugins( ) 
   else 
-    return '💢 لا يوجد ملف بهذا الاسم ‼️\n➠ '..plugin_name..''
+    return '🌟| لا يوجد ملف بهذا الاسم ‼️\n➠ '..plugin_name..''
   end 
 end 
 
 local function disable_plugin( name, chat ) 
   if not plugin_exists(name) then 
-    return '💢 لا يوجد ملف بهذا الاسم ‼️ \n\n'
+    return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   end 
   local k = plugin_enabled(name) 
   if not k then 
-    return '💢 تم تعطيل الملف ♻️\n➠ '..name..' ' 
+    return '🌟| تم تعطيل الملف ♻️\n➠ '..name..' ' 
   end 
   table.remove(_config.enabled_plugins, k) 
   save_config( ) 
   return reload_plugins(true) 
 end 
 
-local function run(msg, matches) -- by omer alsaray TEle _ @blcon
-
-  if matches[1] == '/p' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
+local function th3boss(msg, matches) -- BY @TH3BOSS
+  if matches[1] == 'الملفات' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     return list_all_plugins() 
   end 
-  if matches[1] == '+' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
+  if matches[1] == 'تفعيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     return enable_plugin(matches[2] ) 
   end 
-  if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
+  if matches[1] == 'تعطيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     if matches[2] == 'plugins'  then 
        return '🛠عود انته لوتي تريد تعطل اوامر التحكم بالملفات 🌚' 
     end 
@@ -117,7 +114,7 @@ local function run(msg, matches) -- by omer alsaray TEle _ @blcon
   if (matches[1] == 'تحديث'  or matches[1]=="we") and is_sudo(msg) then --after changed to moderator mode, set only sudo 
   plugins = {} 
   load_plugins() 
-  return "💢تم تحديث الملفات💯 ♻️"
+  return "🌟|تم تحديث الملفات🌐 ♻️"
   end 
   ----------------
      if matches[1] == "sp" or matches[1] == "جلب ملف" and is_sudo(msg) then 
@@ -127,26 +124,25 @@ local function run(msg, matches) -- by omer alsaray TEle _ @blcon
   for k, v in pairs( plugins_names( )) do  
       -- get the name 
       v = string.match (v, "(.*)%.lua") 
-sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@verxbot")
+sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@lBOSSl")
 
   end 
 else
 local file = matches[2] 
   if not plugin_exists(file) then 
-    return '💢 لا يوجد ملف بهذا الاسم ‼️ \n\n'
+    return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   else 
 send_msg(msg.to.id, 'انتضر عزيزي \nسـارسـل لـك الـمـلـف↜ '..matches[2]..'\nيـا '..(msg.from.first_name or "---")..'\n', msg.id, 'md')
-sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@verxbot")
+sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@lBOSSl")
 end
 end
 end
  
--- by omer alsaray TEle _ @blcon
-
+-- BY @TH3BOSS
 if matches[1] == "dp" or matches[1] == "حذف ملف"  and matches[2] and is_sudo(msg) then 
 disable_plugin(matches[2]) 
-if disable_plugin(matches[2]) == '💢 لا يوجد ملف بهذا الاسم ‼️ \n\n' then
-return '💢 لا يوجد ملف بهذا الاسم ‼️ \n\n'
+if disable_plugin(matches[2]) == '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n' then
+return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
 else
 text = io.popen("rm -rf  plugins/".. matches[2]..".lua"):read('*all') 
 return 'تم حذف الملف \n↝ '..matches[2]..'\n يا '..(msg.from.first_name or "---")..'\n'
@@ -156,9 +152,9 @@ end
 
 return { 
   patterns = { 
-    "^/p$", 
-    "^/p? (+) ([%w_%.%-]+)$", 
-    "^/p? (-) ([%w_%.%-]+)$", 
+    "^الملفات$", 
+    "^/p? (تفعيل ملف) ([%w_%.%-]+)$", 
+    "^/p? (تعطيل ملف) ([%w_%.%-]+)$",
      "^(sp) (.*)$", 
 	  "^(dp) (.*)$", 
    "^(حذف ملف) (.*)$",
@@ -166,9 +162,9 @@ return {
     "^(تحديث)$",
     "^(we)$",
  }, 
-  run = run, 
+  run = th3boss, 
   moderated = true, 
 } 
 
 end 
--- by omer alsaray TEle _ @blcon
+-- BY @TH3BOSS
