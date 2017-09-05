@@ -1,6 +1,38 @@
-# [TH3BOSS V18](https://t.me/LBOSSL)
-An advanced administration bot based on TH3BOSS
+# [<< TH3BOSS >> V18 (Final Version)](https://telegram.me/llDEV1ll)
 
+**An advanced and powerful administration bot based on NEW TG-CLI
+
+
+* * *
+
+
+# Installation
+
+
+```sh
+<< TH3BOSS >>
+
+🔸➖🔹➖🔸➖🔹
+<< V18 WE ARE TH3BEST >>
+🔸➖🔹➖🔸➖🔹
+ << كـيـفـيـه تـنـصـيـب سـورس الـزعـيـم >>
+🔸➖🔹➖🔸➖🔹
+ << افتـح ترمنـــأل وخلي >>
+🔸➖🔹➖🔸➖🔹
+# Let's Install The Bot >>
+🔸➖🔹➖🔸➖🔹
+cd $HOME
+🔸➖🔹➖🔸➖🔹
+git clone https://github.com/moody2020/BOSSTOKEN.git
+🔸➖🔹➖🔸➖🔹
+cd TH3BOSS
+🔸➖🔹➖🔸➖🔹
+chmod +x TH3BOSS.sh
+🔸➖🔹➖🔸➖🔹
+./TH3BOSS.sh install
+🔸➖🔹➖🔸➖🔹
+./TH3BOSS.sh 
+🔸➖🔹➖🔸➖🔹
 * * *
 
 ## Configure
@@ -11,35 +43,53 @@ An advanced administration bot based on TH3BOSS
 
 # Installation
 
-```sh
-# Let's install the bot.
-cd $HOME
-git clone https://github.com/moody2020/BOSSTOKEN.git
-cd BOSSTOKEN
-chmod +x TH3BOSS.sh
-./TH3BOSS.sh install
-./TH3BOSS.sh 
-
-
-# For Auto Launch:
+🔸➖🔹➖🔸➖🔹
+# For Auto Launch >>
+🔸➖🔹➖🔸➖🔹
+cd TH3BOSS
+🔸➖🔹➖🔸➖🔹
 chmod 777 autobd.sh
-tmux
-./autobd.sh
-# End ;)
+🔸➖🔹➖🔸➖🔹
+screen ./autobd.sh
+🔸➖🔹➖🔸➖🔹
+<< TH3BOSS >>
+
+<< # Dev Bot @TH3BOSS >>
+
+<< # Channel Bot @llDEV1ll >>
 ```
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/BOSSTOKEN.git && cd BOSSTOKEN && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
+cd $HOME && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
+
+OR
+
+cd $HOME && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && chmod 777 autobd.sh && screen ./autobd.sh
 ```
 
+* * *
 
 # Support and Development
 
-More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0MzalUgDtZiLJafYQ)
+More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0OPsgbb_99AkUgWQ)
 
-# Special thanks to
+More information [TH3BOSS Channel](https://t.me/llDEV1ll)
 
-`TH3BOSS Team Members`
 
 * * *
+
+# Developers !
+
+[TH3BOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/TH3BOSS))
+
+[Mohammed Hisham](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
+
+[TEAMBOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/llDEV1ll))
+
+
+### Our Telegram channel : [@llDEV1ll](https://telegram.me/llDEV1ll)
+
+# Special thanks to Omar Alsaray : [@blcon](https://telegram.me/blcon)
+
+# [<< TH3BOSS >> V18 (Final Version)](https://telegram.me/llDEV1ll)
