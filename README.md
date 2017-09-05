@@ -15,10 +15,10 @@ An advanced administration bot based on TH3BOSS
 # Let's install the bot.
 cd $HOME
 git clone https://github.com/moody2020/BOSSTOKEN.git
-cd BOSS
-chmod +x BOSSTOKEN.sh
-./BOSSTOKEN.sh install
-./BOSSTOKEN.sh 
+cd TH3BOSS
+chmod +x TH3BOSS.sh
+./TH3BOSS.sh install
+./TH3BOSS.sh 
 
 
 # For Auto Launch:
@@ -30,7 +30,7 @@ tmux
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/BOSSTOKEN.git && cd BOSSTOKEN && chmod +x BOSSTOKEN.sh && ./BOSSTOKEN.sh install && ./BOSSTOKEN.sh
+cd $HOME && git clone https://github.com/moody2020/BOSSTOKEN.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
 ```
 
 
