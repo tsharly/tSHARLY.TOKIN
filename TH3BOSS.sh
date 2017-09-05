@@ -61,7 +61,7 @@ function logo_play() {
 
 function th3boss() {
 	echo -e "\e[0m"
-	red "     >>>>                         🌟| We Are Not Attacker                             "
+   	  red "     >>>>                         🌟| We Are Not Attacker                             "
     green "     >>>>                       🌟| We Are Not Alliance                             "
 	white "     >>>>                       🌟| We Are Programmer                               "
 	white "     >>>>                       🌟| We Are The Best                                 "
