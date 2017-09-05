@@ -168,6 +168,7 @@ if not tostring(SUDO):match('%d+') then
     "groupmanager",
     "tools",
     "banhammer",
+    "replay",
     },
     sudo_users = {60809019, SUDO},--Sudo users
     master_id = SUDO, 
@@ -278,5 +279,3 @@ handle_inline_keyboards_cb(v.callback_query)
 		last_cron = os.time()
 	end
 end
-
-
