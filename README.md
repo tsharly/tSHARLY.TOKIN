@@ -30,7 +30,7 @@ tmux
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/BOSSTOKEN.git && cd BOSS && chmod +x BOSSTOKEN.sh && ./BOSS.sh install && ./BOSSTOKEN.sh
+cd $HOME && git clone https://github.com/moody2020/BOSSTOKEN.git && cd BOSS && chmod +x BOSSTOKEN.sh && ./BOSSTOKEN.sh install && ./BOSSTOKEN.sh
 ```
 
 
