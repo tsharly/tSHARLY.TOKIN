@@ -15,7 +15,7 @@ JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
 require('./bot/methods')
 require('./bot/utils')
--- @TH3BOSS
+-- @lBOSSl
 function bot_run()
 	bot = nil
 	while not bot do
@@ -66,7 +66,7 @@ function save_data(filename, data)
 end
 
 function msg_valid(msg)
-local msg_time = os.time() - 60
+local msg_time = os.time() - 1
 	if msg.date < tonumber(msg_time) then
 		print('\27[36m》》OLD MESSAGE《《\27[39m')
 		return false
@@ -235,8 +235,9 @@ function load_plugins()
 
     if not ok then
       print('\27[31mError loading plugin '..v..'\27[39m')
-	  print(tostring(io.popen("lua plugins/"..v..".lua"):read('*all')))
+	    print(tostring(io.popen("lua plugins/"..v..".lua"):read('*all')))
       print('\27[31m'..err..'\27[39m')
+      return
     end
 
   end
@@ -263,6 +264,7 @@ handle_inline_keyboards_cb(v.callback_query)
 		end
 	else
 		print("error while")
+		return
 	end
 	if last_cron < os.time() - 30 then
   for name, plugin in pairs(plugins) do
@@ -274,7 +276,7 @@ handle_inline_keyboards_cb(v.callback_query)
         
 			)
       end
-			if not res then print('error: '..err) end
+			if not res then print('error: '..err) return end
 		end
 		last_cron = os.time()
 	end
