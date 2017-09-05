@@ -1,4 +1,4 @@
---Begin msg_checks.lua By @SoLiD
+--Begin msg_checks.lua By @TH3BOSS
 local function pre_process(msg)
 if not msg.query then
 local status = getChatAdministrators(msg.to.id)
