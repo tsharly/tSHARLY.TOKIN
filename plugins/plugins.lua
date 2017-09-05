@@ -1,5 +1,4 @@
--- BY @TH3BOSS
-do 
+-- BY @TH3BOSSdo 
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
     if name == v then 
@@ -39,14 +38,14 @@ local function list_all_plugins(only_enabled)
       text = text..nsum..'-'..status..' '..check_markdown(v)..' \n'
     end
   end
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 🌐 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
   return text
 end
 local function list_plugins(only_enabled) 
   local text = '' 
   local nsum = 0 
   for k, v in pairs( plugins_names( )) do 
-    local status = '❌' 
+    local status = '🚫' 
     nsum = nsum+1 
     nact = 0  
     for k2, v2 in pairs(_config.enabled_plugins) do 
@@ -60,7 +59,7 @@ local function list_plugins(only_enabled)
       text = text..status..'➠ '..v..'\n' 
     end 
   end 
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 🌐 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
   return text 
 end 
 
@@ -73,7 +72,7 @@ end
 local function enable_plugin( plugin_name ) 
   print('checking if '..plugin_name..' exists') 
   if plugin_enabled(plugin_name) then 
-    return '♨️ تم تفعيل الملف 🌐\n➠ '..plugin_name..' ' 
+    return '♨️ تم تفعيل الملف 💯\n➠ '..plugin_name..' ' 
   end 
   if plugin_exists(plugin_name) then 
     table.insert(_config.enabled_plugins, plugin_name) 
@@ -98,14 +97,14 @@ local function disable_plugin( name, chat )
   return reload_plugins(true) 
 end 
 
-local function th3boss(msg, matches) -- BY @TH3BOSS
+local function run(msg, matches) -- BY @TH3BOSS
   if matches[1] == 'الملفات' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     return list_all_plugins() 
   end 
-  if matches[1] == 'تفعيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
+  if matches[1] == '+' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     return enable_plugin(matches[2] ) 
   end 
-  if matches[1] == 'تعطيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
+  if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     if matches[2] == 'plugins'  then 
        return '🛠عود انته لوتي تريد تعطل اوامر التحكم بالملفات 🌚' 
     end 
@@ -114,17 +113,17 @@ local function th3boss(msg, matches) -- BY @TH3BOSS
   if (matches[1] == 'تحديث'  or matches[1]=="we") and is_sudo(msg) then --after changed to moderator mode, set only sudo 
   plugins = {} 
   load_plugins() 
-  return "🌟|تم تحديث الملفات🌐 ♻️"
+  return "🌟|تم تحديث الملفات💯 ♻️"
   end 
   ----------------
-     if matches[1] == "sp" or matches[1] == "جلب ملف" and is_sudo(msg) then 
+     if (matches[1] == "sp" or matches[1] == "جلب ملف") and is_sudo(msg) then 
      if matches[2]=="الكل" or matches[2]=="all" then
    send_msg(msg.to.id, 'انتضر قليلا سوف يتم ارسالك كل الملفات📢', msg.id, 'md')
 
   for k, v in pairs( plugins_names( )) do  
       -- get the name 
       v = string.match (v, "(.*)%.lua") 
-sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@lBOSSl")
+sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@verxbot")
 
   end 
 else
@@ -133,13 +132,13 @@ local file = matches[2]
     return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   else 
 send_msg(msg.to.id, 'انتضر عزيزي \nسـارسـل لـك الـمـلـف↜ '..matches[2]..'\nيـا '..(msg.from.first_name or "---")..'\n', msg.id, 'md')
-sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@lBOSSl")
+sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@verxbot")
 end
 end
 end
  
 -- BY @TH3BOSS
-if matches[1] == "dp" or matches[1] == "حذف ملف"  and matches[2] and is_sudo(msg) then 
+if (matches[1] == "dp" or matches[1] == "حذف ملف")  and matches[2] and is_sudo(msg) then 
 disable_plugin(matches[2]) 
 if disable_plugin(matches[2]) == '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n' then
 return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
@@ -153,8 +152,8 @@ end
 return { 
   patterns = { 
     "^الملفات$", 
-    "^/p? (تفعيل ملف) ([%w_%.%-]+)$", 
-    "^/p? (تعطيل ملف) ([%w_%.%-]+)$",
+    "^/p? (+) ([%w_%.%-]+)$", 
+    "^/p? (-) ([%w_%.%-]+)$", 
      "^(sp) (.*)$", 
 	  "^(dp) (.*)$", 
    "^(حذف ملف) (.*)$",
@@ -162,9 +161,8 @@ return {
     "^(تحديث)$",
     "^(we)$",
  }, 
-  run = th3boss, 
+  run = run, 
   moderated = true, 
 } 
 
-end 
 -- BY @TH3BOSS
