@@ -23,20 +23,30 @@ install() {
 }
 
 function print_logo() {
-	green "          ____  ____     _____"
-	green "         |  _ )|  _ \   |_   _|___ ____   __  __"
-	green "         |  _ \| |_) )    | |/ .__|  _ \_|  \/  |"
-	green "         |____/|____/     |_|\____/\_____|_/\/\_|"
+	green " "
+	green "                 ____ _____ _   _ _____ ____   ___  ____ ____  
+                 / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
+                / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
+               | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
+                \ \__,_||_| |_| |_|____/|____/ \___/|____/____/ 
+                 \____/ "
+	green " "
+	green " "
 	echo -e "\n\e[0m"
 }
 
 function logo_play() {
     declare -A txtlogo
     seconds="0.010"
-    txtlogo[1]=" ____  ____     _____"
-    txtlogo[2]="|  _ )|  _ \   |_   _|___ ____   __  __"
-    txtlogo[3]="|  _ \| |_) )    | |/ .__|  _ \_|  \/  |"
-    txtlogo[4]="|____/|____/     |_|\____/\_____|_/\/\_|"
+    txtlogo[1]=" "
+    txtlogo[2]="            ____ _____ _   _ _____ ____   ___  ____ ____  
+                 / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
+                / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
+               | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
+                \ \__,_||_| |_| |_|____/|____/ \___/|____/____/ 
+                 \____/ "
+    txtlogo[3]=" "
+    txtlogo[4]=" "
     printf "\e[31m\t"
     for i in ${!txtlogo[@]}; do
         for x in `seq 0 ${#txtlogo[$i]}`; do
@@ -49,14 +59,14 @@ function logo_play() {
 	echo -e "\e[0m"
 }
 
-function beyondteam() {
+function th3boss() {
 	echo -e "\e[0m"
-	green "     >>>>                       We Are Not Attacker                             "
-	green "     >>>>                       We Are Not Alliance                             "
-	white "     >>>>                       We Are Programmer                               "
-	white "     >>>>                       We Are The Best                                 "
-	red   "     >>>>                       We Are Family                                   "
-	red   "     >>>>                       @BeyondTeam                                     "
+	red "     >>>>                         🌟| We Are Not Attacker                             "
+    green "     >>>>                       🌟| We Are Not Alliance                             "
+	white "     >>>>                       🌟| We Are Programmer                               "
+	white "     >>>>                       🌟| We Are The Best                                 "
+	  red "     >>>>                       🌟| We Are Family                                   "
+	  red "     >>>>                       🌟| @llDEV1ll                                       "
 	echo -e "\e[0m"
 }
 
@@ -75,18 +85,18 @@ update() {
 
 if [ "$1" = "install" ]; then
 	print_logo
-	beyondteam
+	th3boss
 	logo_play
 	install
 elif [ "$1" = "update" ]; then
 	logo_play
-	beyondteam
+	th3boss
 	update
 	exit 1
 else
 	print_logo
-	beyondteam
+	th3boss
 	logo_play
-	green "Beyond Manager Bot running..."
+	green " TH3BOSS V18 Bot running..."
 	lua ./bot/bot.lua
 fi
