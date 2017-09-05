@@ -117,7 +117,7 @@ end
 ------------[lock and unlock reply in pv ]---------
     
 if (msg.to.type == "private") and not is_sudo(msg) then
-send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/BOSS \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
+send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/BOSSTOKEN \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
 local pvmsg ="🌟|ألاسم :"..name_user.."\n🌟|الايدي : ["..msg.from.id.."]\n🌟|ألمعرف : ["..usernamex.."]\n 📥الرسالة: \n\n"..msg.text
 
 send_msg(60809019, pvmsg, nil, 'md')
