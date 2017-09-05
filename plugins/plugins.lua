@@ -123,7 +123,7 @@ local function run(msg, matches) -- BY @TH3BOSS
   for k, v in pairs( plugins_names( )) do  
       -- get the name 
       v = string.match (v, "(.*)%.lua") 
-sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@verxbot")
+sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@lBOSSl")
 
   end 
 else
@@ -132,7 +132,7 @@ local file = matches[2]
     return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   else 
 send_msg(msg.to.id, 'انتضر عزيزي \nسـارسـل لـك الـمـلـف↜ '..matches[2]..'\nيـا '..(msg.from.first_name or "---")..'\n', msg.id, 'md')
-sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@verxbot")
+sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@lBOSSl")
 end
 end
 end
