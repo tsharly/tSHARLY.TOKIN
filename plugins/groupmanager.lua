@@ -1716,7 +1716,7 @@ end
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(matches[2])] = nil
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  "..user_name.."\n🌟| ����لايدي :  "..matches[2].." \n🌟| تم تنزيل الادمن "
+    return "🌟| العضو :  "..user_name.."\n🌟| ������لايدي :  "..matches[2].." \n🌟| تم تنزيل الادمن "
       end
    elseif matches[2] and string.match(matches[2], '@[%a%d_]')  then
   if not resolve_username(matches[2]).result then
@@ -2243,10 +2243,11 @@ end
 	end
  if msg.newuser then
  if msg.newuser.id == bot.id then
-   local rsala = [[🌟| مرحبا انا بوت اسمي الزعيم 🎖
+  local rsala = [[🌟| مرحبا انا بوت اسمي الزعيم 🎖
 🌟|اختصاصي حمايه كروبات 
 🌟|من السبام والوسائط والتكرار والخ ...
-🌟| مطور البوت : @TH3BOSS]]
+🌟| مطور البوت : @TH3BOSS
+🌟| للاستفسار راسلني : @lBOSSl]]
 	sendPhoto(msg.to.id, "data/photos/TH3BOSS.jpg", rsala, msg.id)
 end
 end
