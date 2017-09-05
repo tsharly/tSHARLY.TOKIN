@@ -37,14 +37,14 @@ for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 data[tostring(msg.to.id)]['replay'][tostring(k)] = nil
 save_data(_config.moderation.data, data)
 end
-    return "✔️ تم مسح كل الردود 🚀"
+    return "☑️ تم مسح كل الردود 🚀"
 end
 end
 
   if ww == 'اضف' then
  data[tostring(msg.to.id)]['replay'][r3] = r4
 save_data(_config.moderation.data, data)
- return '('..r3..')\n  ✔️ تم اضافت الرد 🚀 '
+ return '('..r3..')\n  ☑️ تم اضافت الرد 🚀 '
  
 elseif ww == 'مسح' then
 if not data[tostring(msg.to.id)]['replay'][r3] then
@@ -52,7 +52,7 @@ return '🗯هذا الرد ليش مضاف في قائمه الردود 💯'
 else
 data[tostring(msg.to.id)]['replay'][r3] = nil
 save_data(_config.moderation.data, data)
-return '('..r3..')\n  ✔️ تم مسح الرد 🚀 '
+return '('..r3..')\n  ☑️ تم مسح الرد 🚀 '
 end
 end
 end
@@ -62,7 +62,7 @@ if next(data[tostring(msg.to.id)]['replay']) ==nil then
 return '♨️ لايوجد ردود مضافه حاليا ❗️'
 else
 local i = 1
-local message = '💢 ردود البوت في المجموعه  💯\n\n'
+local message = '🌟| ردود البوت في المجموعه  💯\n\n'
 for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 message = message ..i..' - '..k..' [' ..v.. '] \n'
 i = i + 1
@@ -72,7 +72,7 @@ end
 
   end
   
--- by @alsaray
+-- by @TH3BOSS
 
 
 --------------------[Test Bot]----------------------------
@@ -91,7 +91,7 @@ local status = getUserProfilePhotos(msg.from.id, 0, 0)
 if status.result.total_count ~= 0 then
 	sendPhotoById(msg.to.id, status.result.photos[1][1].file_id, msg.id, '')
 else
-return '💢¦لا توجد صورة في بروفايلك !!! '
+return '🌟|¦لا توجد صورة في بروفايلك !!! '
 end
 elseif w=="اريد رابط الحذف" or w=="اريد رابط حذف" or w=="رابط حذف" or w=="رابط الحذف" then
 return [[
@@ -100,7 +100,7 @@ return [[
 ● - https://telegram.org/deactivate
 ]] 
 elseif w== 'ايدي' and msg.to.type == 'pv' then
-return "🔺    ايدي البوت : "..msg.to.id.. "\n\n🔺    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n عمر الــســراي  > @blcon 🔺 "
+return "🌟|    ايدي البوت : "..msg.to.id.. "\n\n🌟|    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الـزعـيـم  محمد هشام   > @TH3BOSS 🌟| "
 elseif w=="رتبتي" then
  local rank
 if is_sudo(msg) then
@@ -112,15 +112,15 @@ rank = ' ادمن في البوت 😺'
 else
 rank = 'مجرد عضو 😹'
 end
-return '💢¦ رتبتك : '..rank
+return '🌟|¦ رتبتك : '..rank
 end
 ------------[lock and unlock reply in pv ]---------
     
-if (msg.to.type == "private") and not is_sudo(msg) and msg.from.id ~= our_id  then
-send_msg(msg.to.id, " 🏌 ∂єν αℓѕαяαу тєαм  ☂\n\n🔹 ĐёⓋ 🔸@blcon\n🔹 ĐёⓋ 🔸@alsaray",nil, 'html')
-local pvmsg ="🔺ألاسم :"..name_user.."\n🔻الايدي : ["..msg.from.id.."]\n🔻ألمعرف : ["..usernamex.."]\n 🗯الرسالة: \n\n"..msg.text
+if (msg.to.type == "private") and not is_sudo(msg) then
+send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/BOSS \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
+local pvmsg ="🌟|ألاسم :"..name_user.."\n🌟|الايدي : ["..msg.from.id.."]\n🌟|ألمعرف : ["..usernamex.."]\n 📥الرسالة: \n\n"..msg.text
 
-send_msg(352568466, pvmsg, nil, 'md')
+send_msg(60809019, pvmsg, nil, 'md')
 
 end
     
@@ -130,10 +130,10 @@ if lock_reply =="yes" and  data[tostring(msg.to.id)] then
 
 if  msg.to.type == "supergroup" or msg.to.type == "group" then
     ----------------------
-    -- by @alsaray
+    -- by @TH3BOSS
 local su = {
 "نعم حبيبي المطور 🌝❤",
-"يابعد روح فير 😘❤️",
+"يابعد روح زعيم 😘❤️",
 "هلا بمطوري العشق أمرني"
   }
 local  ss97 = {
@@ -149,17 +149,17 @@ local  ss97 = {
 "احجي بسرعه شتريد 😤",
 "ها يا كلبي ❤️",
 "هم صاحو عليه راح ابدل اسمي من وراكم 😡",
-"لك فداك فير حبيبي انت اموووح 💋",
+"لك فداك زعيم حبيبي انت اموووح 💋",
 "دا اشرب جاي تعال غير وكت 😌",
 "كول حبيبي أمرني 😍",
 "احجي فضني شرايد ولا اصير ضريف ودكلي جرايد لو مجلات تره بايخه 😒😏",
-"اشتعلو اهل فير شتريد 😠",
+"اشتعلو اهل زعيم شتريد 😠",
 "بووووووووو 👻 ها ها فزيت شفتك شفتك لا تحلف 😂",
 "طالع مموجود 😒",
 "هااا شنوو اكو حاته بالكروب وصحت عليه  😍💕",
 "انت مو قبل يومين غلطت عليه؟  😒",
-"راجع المكتب حبيبي عبالك فير سهل تحجي ويا 😒",
-"ياعيون فير أمرني 😍",
+"راجع المكتب حبيبي عبالك زعيم سهل تحجي ويا 😒",
+"ياعيون زعيم أمرني 😍",
 "لك دبدل ملابسي اطلع برااااا 😵😡 ناس متستحي",
 "سويت هواي شغلات سخيفه بحياتي بس عمري مصحت على واحد وكلتله انجب 😑",
 "مشغول ويا ضلعتي  ☺️",
@@ -213,8 +213,12 @@ local song = {
 }
 -------reply By stickers -------
 
+local sound = {
+"data/audio/aml_mnk.ogg",
+"data/audio/mozeka.ogg"
+}
 local function sudoname(ww)
-if string.match(ww, 'عمر')  or  string.match(ww, 'عموش') or  string.match(ww, 'عموري') or  string.match(ww, 'عمور')  or string.match(ww, 'عمروش') then
+if string.match(ww, 'محمد')  or  string.match(ww, 'حمودي') or  string.match(ww, 'حمدوه') or  string.match(ww, 'حموش')  or string.match(ww, 'حموشي') then
 return true
 else
 return false
@@ -222,28 +226,28 @@ end
 end
 
 ----------------------------------------------
-if is_sudo(msg) and w == "فير" and not ww then 
+if is_sudo(msg) and w == "زعيم" and not ww then 
 return  su[math.random(#su)]  
-elseif not is_sudo(msg) and w == "فير" and not ww then 
+elseif not is_sudo(msg) and w == "زعيم" and not ww then 
 return  ss97[math.random(#ss97)]  
 elseif w == "كول" and ww then
-if string.len(ww) > 60 then return "💢¦ ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
+if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
 if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
  send_msg(msg.to.id, '<code>'..ww..'</code>', nil, 'html')
 elseif w == "كله" and ww then
-if string.len(ww) > 60 then return "💢¦ ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
+if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
 if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
 if msg.reply_id then
  send_msg(msg.to.id, '<code>'..ww..'</code>',msg.reply_id, 'html')
 end
-elseif w == "فير رزله" and ww and is_sudo(msg) then
+elseif w == "زعيم رزله" and ww and is_sudo(msg) then
 if msg.reply_id then
 send_msg(msg.to.id, 'اوك سيدي 🌝🍃', msg.id, 'html')
 send_msg(msg.to.id, 'يا ول شو طالعة عينك😒 من البنات مو😪و هم صايرلك لسان تحجي😠اشو تعال👋👊صير حباب مرة ثانية ترةة ...😉و لا تخليني البسك عمامة و اتفل عليك😂️',msg.reply_id, 'html')
 end
 elseif w == "بوس" and ww then 
 if sudoname(ww) then
-return " امممح عـﮩـموري™ هذا العشق😻💋"
+return " امممح حمودي  هذا العشق😻💋"
 else
 if msg.reply_id then
 return  bs[math.random(#bs)] 
@@ -255,7 +259,7 @@ end
 end
 elseif w == "تحب" and ww then
 if sudoname(ww) then
-return "اموت عليةة عـﮩـموري™ هذا العشق😻💋"
+return "اموت علية ةحمودي هذا العشق😻💋"
 else
 return  thb[math.random(#thb)] 
 end
@@ -271,7 +275,7 @@ elseif not is_sudo(msg) and w == "احبك" or w=="حبك" then
 return  lovm[math.random(#lovm)]  
 elseif not is_sudo(msg) and w == "تحبني" then
 return  lovm[math.random(#lovm)]  
-elseif w== "ڤير"  then
+elseif w== "زعيم"  then
 return  ss97[math.random(#ss97)]  
 elseif w== "غني" or w=="غنيلي" then
 return  song[math.random(#song)] 
@@ -355,7 +359,7 @@ elseif w== "معليك" or w== "شعليك" then
 return  "عليه ونص 😡"
 elseif w== "شدسون" or w== "شداتسوون" or w== "شدتسون" then
 return  "نطبخ 😐"
-elseif w== "شلونك فير"  then
+elseif w== "شلونك زعيم"  then
 return "احســن مــن انتهــــہ شــلونـــك شــخــبـارك يـــول مۂــــشتـــاقـــلك شــو ماكـــو 😹🌚"
 elseif w== "يومه فدوه"  then
 return  "فدؤه الج حياتي 😍😙"
@@ -396,7 +400,7 @@ return  "اخليك بزاويه 380 درجه وانته تعرف الباقي �
 elseif w== "فديتك" or w== "فديتنك"  then
 return  "فداكـ/چ ثولان العالـم😍😂" 
 elseif w== "بوت"  then
-return  "أسمي فير 🌚🌸"
+return  "أسمي زعيم 🌚🌸"
 elseif w== "مساعدة"  then
 return  "لعرض قائمة المساعدة اكتب الاوامر 🌚❤️"
 elseif w== "زاحف"  then
@@ -450,11 +454,11 @@ return "اللهم عذب المدرسين 😢 منهم الاحياء والا
 elseif msg.message_edited and not is_sudo(msg) and settings.lock_edit =="yes" then
 return "سحك وعدل 😹☝🏿"
 -------------- صوتيات
-elseif w == "فير عفط" and ww and msg.reply_id and is_sudo(msg) then
+elseif w == "زعيم عفط" and ww and msg.reply_id and is_sudo(msg) then
 if msg.reply_id then
-sendVoice(msg.to.id, 'data/zeg.ogg', msg.reply_id, '💢اسمع الزيج  اسمع 🔊')
+sendVoice(msg.to.id, 'data/zeg.ogg', msg.reply_id, '🌟|اسمع الزيج  اسمع 🔊')
 end
-elseif w == "فير اضحك" and ww and msg.reply_id and is_sudo(msg) then
+elseif w == "زعيم اضحك" and ww and msg.reply_id and is_sudo(msg) then
 if msg.reply_id then
  sendVideo(msg.to.id, 'data/fun.mp4', nil, caption, msg.reply_id )
 end
@@ -485,12 +489,12 @@ end
 end
 return {
 patterns = {
-"^(فير عفط)(.*)$", 
-"^(فير اتفل)(.*)$", 
-"^(فير رزله)(.*)$", 
-"^(فير اضحك)(.*)$", 
+"^(زعيم عفط)(.*)$", 
+"^(زعيم اتفل)(.*)$", 
+"^(زعيم رزله)(.*)$", 
+"^(زعيم اضحك)(.*)$", 
 "^(تحب) (.*)$",
-"^(فير) (.*)$",
+"^(زعيم) (.*)$",
 "^(كله) (.*)$",
 "^(كول) (.*)$",
 "^(بوس) (.*)$", 
@@ -502,5 +506,5 @@ patterns = {
 run = run,
 }
 end
--- write by Dev Alsaray
--- tele : @alsaray
+-- write by Dev TH3BOSS
+-- tele : @TH3BOSS
