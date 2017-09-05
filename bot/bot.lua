@@ -15,7 +15,7 @@ JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
 require('./bot/methods')
 require('./bot/utils')
--- @verxbot
+-- @TH3BOSS
 function bot_run()
 	bot = nil
 	while not bot do
@@ -110,19 +110,7 @@ if plugin.pre_process then
   for k, pattern in pairs(plugin.patterns) do
     local matches = match_pattern(pattern, msg.text or msg.caption or msg.query)
     if matches then
---[[if not is_BDChannel_member(msg.from.id, msg.chat.id, msg.message_id) then
 
-keyboard = {}
-  keyboard.inline_keyboard = {
-   {
-{text= 'Beyond Team Channel' ,url = 'Telegram.Me/BeyondTeam'}
-}					
-		}
-		tkey = '_First Join To_ *Beyond Team Channel* _And Try Again_'
-      send_key(msg.chat.id, tkey, keyboard, msg.message_id, "md")
-      return
-end
-]]
       print("msg matches: ", pattern)
       -- Function exists
       if plugin.run then
@@ -180,30 +168,34 @@ if not tostring(SUDO):match('%d+') then
     "groupmanager",
     "tools",
     "banhammer",
-    "replay"
     },
     sudo_users = {60809019, SUDO},--Sudo users
     master_id = SUDO, 
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*》 TH3BOSS  V18*
-	
-`》An advanced administration bot based on` *TH3BOSS*
+    info_text = [[*🌟| TH3BOSS  V18*
+  
+🌟|An advanced administration bot based on *TH3BOSS*
 
-》[TH3BOSS](https://github.com/moody2020/BOSSTOKEN)
+🌟|[TH3BOSS](https://github.com/moody2020/BOSSTOKEN)
 
-*》Admins :*
-_》Developer :_ [TH3BOSS](Telegram.Me/TH3BOSS)
-_》Developer :_ [BOSS](Telegram.Me/lBOSSl)
+*🌟|Admins :*
 
-*》Special thanks to :*
-`TEAM BOSS Members`
+_🌟|Developer :_ [TH3BOSS](Telegram.Me/TH3BOSS)
 
-*》Our channel :*
-》[LLDEV1LL](Telegram.Me/LLDEV1LL)
+_🌟|Developer :_ [BOSS](Telegram.Me/lBOSSl)
 
-*》Our Group Manger :*
+*🌟|Special thanks to :*
+
+TEAMBOSS Members
+
+*🌟|Our channel :*
+
+🌟|[TEAMBOSS](Telegram.Me/LLDEV1LL)
+
+*🌟|Our Group Manger :*
+
 [Group Manger](Telegram.Me/lBOSSl)
 ]],
   }
