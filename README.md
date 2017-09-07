@@ -23,7 +23,7 @@
 🔸➖🔹➖🔸➖🔹
 cd $HOME
 🔸➖🔹➖🔸➖🔹
-git clone https://github.com/moody2020/BOSSTOKEN.git
+git clone https://github.com/moody2020/TOKEN.git
 🔸➖🔹➖🔸➖🔹
 cd TH3BOSS
 🔸➖🔹➖🔸➖🔹
