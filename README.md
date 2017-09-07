@@ -1,4 +1,4 @@
-# [<< TH3BOSS >> V18 (Final Version)](https://telegram.me/llDEV1ll)
+# [<< TOKEN >> V18 (Final Version)](https://telegram.me/llDEV1ll)
 
 **An advanced and powerful administration bot based on NEW TG-CLI
 
@@ -10,7 +10,7 @@
 
 
 ```sh
-<< TH3BOSS >>
+<< TOKEN >>
 
 🔸➖🔹➖🔸➖🔹
 << V18 WE ARE TH3BEST >>
@@ -27,7 +27,7 @@ git clone https://github.com/moody2020/TOKEN.git
 🔸➖🔹➖🔸➖🔹
 cd TOKEN
 🔸➖🔹➖🔸➖🔹
-chmod +x TH3BOSS.sh
+chmod +x TOKEN.sh
 🔸➖🔹➖🔸➖🔹
 ./TOKEN.sh install
 🔸➖🔹➖🔸➖🔹
@@ -44,22 +44,22 @@ chmod +x TH3BOSS.sh
 🔸➖🔹➖🔸➖🔹
 # For Auto Launch >>
 🔸➖🔹➖🔸➖🔹
-cd TH3BOSS
+cd TOKEN
 🔸➖🔹➖🔸➖🔹
 chmod 777 autobd.sh
 🔸➖🔹➖🔸➖🔹
 screen ./autobd.sh
 🔸➖🔹➖🔸➖🔹
-<< TH3BOSS >>
+<< TOKEN >>
 
-<< # Dev Bot @TH3BOSS >>
+<< # Dev Bot @TOKEN >>
 
 << # Channel Bot @llDEV1ll >>
 ```
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TH3BOSS.sh install && ./TOKEN.sh
+cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TOKEN.sh install && ./TOKEN.sh
 
 OR
 
@@ -70,16 +70,16 @@ cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmo
 
 # Support and Development
 
-More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0OPsgbb_99AkUgWQ)
+More information [TOKEN Global Chat](https://t.me/joinchat/A5_fO0OPsgbb_99AkUgWQ)
 
-More information [TH3BOSS Channel](https://t.me/llDEV1ll)
+More information [TOKEN Channel](https://t.me/llDEV1ll)
 
 
 * * *
 
 # Developers !
 
-[TH3BOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/TH3BOSS))
+[TOKEN](https://github.com/moody2020) ([Telegram](https://telegram.me/TOKEN))
 
 [Mohammed Hisham](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
 
@@ -90,4 +90,4 @@ More information [TH3BOSS Channel](https://t.me/llDEV1ll)
 
 # Special thanks to Omar Alsaray : [@blcon](https://telegram.me/blcon)
 
-# [<< TH3BOSS >> V18 (Final Version)](https://telegram.me/llDEV1ll)
+# [<< TOKEN >> V18 (Final Version)](https://telegram.me/llDEV1ll)
