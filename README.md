@@ -25,13 +25,13 @@ cd $HOME
 🔸➖🔹➖🔸➖🔹
 git clone https://github.com/moody2020/TOKEN.git
 🔸➖🔹➖🔸➖🔹
-cd TH3BOSS
+cd TOKEN
 🔸➖🔹➖🔸➖🔹
 chmod +x TH3BOSS.sh
 🔸➖🔹➖🔸➖🔹
-./TH3BOSS.sh install
+./TOKEN.sh install
 🔸➖🔹➖🔸➖🔹
-./TH3BOSS.sh 
+./TOKEN.sh 
 🔸➖🔹➖🔸➖🔹
 * * *
 
@@ -59,11 +59,11 @@ screen ./autobd.sh
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
+cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TH3BOSS.sh install && ./TOKEN.sh
 
 OR
 
-cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && chmod 777 autobd.sh && screen ./autobd.sh
+cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TOKEN.sh install && chmod 777 autobd.sh && screen ./autobd.sh
 ```
 
 * * *
