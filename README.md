@@ -10,7 +10,7 @@
 
 
 ```sh
-<< TOKEN >>
+<< TH3BOSS >>
 
 🔸➖🔹➖🔸➖🔹
 << V18 WE ARE TH3BEST >>
