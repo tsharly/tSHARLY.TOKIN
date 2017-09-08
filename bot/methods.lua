@@ -1,3 +1,4 @@
+
 function getUser(user_id)
 local url = http.request('https://www.api.beyond-dev.ir/getUser?token='..bot_token..'&user_id='..user_id)
 local user = JSON.decode(url)
