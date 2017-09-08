@@ -70,7 +70,7 @@ cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmo
 
 # Support and Development
 
-More information [TOKEN Global Chat](https://t.me/joinchat/A5_fO0OPsgbb_99AkUgWQ)
+More information [TOKEN Global Chat](https://t.me/lBOSSl)
 
 More information [TOKEN Channel](https://t.me/llDEV1ll)
 
@@ -79,7 +79,7 @@ More information [TOKEN Channel](https://t.me/llDEV1ll)
 
 # Developers !
 
-[TOKEN](https://github.com/moody2020) ([Telegram](https://telegram.me/TOKEN))
+[TOKEN](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
 
 [Mohammed Hisham](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
 
