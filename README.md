@@ -52,9 +52,9 @@ screen ./autobd.sh
 🔸➖🔹➖🔸➖🔹
 << TOKEN >>
 
-<< # Dev Bot @TOKEN >>
+<< # Dev Bot @TH3BOSS >>
 
-<< # Channel Bot @llDEV1ll >>
+<< # Channel Bot @lBOSSl >>
 ```
 ### One command
 To install everything in one command, use:
