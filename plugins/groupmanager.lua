@@ -1,4 +1,4 @@
--- groupmanager.lua by @TH3BOSS
+
 local function modadd(msg)
     -- superuser and admins only (because sudo are always has privilege)
     if not is_sudo(msg) then
@@ -27,6 +27,7 @@ banned ={},
 is_silent_users ={},
 filterlist ={},
 replay ={},
+whitelist ={},
 
 settings = {
 set_name = msg.to.title,
@@ -1364,7 +1365,7 @@ local mutes = data[tostring(target)]["mutes"]
 .."\n🌟| تشغيل الردود : "..settings.replay
 .."\n🌟| تشغيل التحذير : "..settings.lock_woring
 
- .." \n\n🌟| الاشتراك :` "..expire_date
+.." \n\n🌟| الاشتراك :` "..expire_date
  .."`\n🌟| مطور الـسـورس : @TH3BOSS"
  .."\n🌟| قناه الـسـورس : @lBOSSl\n"
 
@@ -1423,19 +1424,17 @@ userxn = "لا يتوفر"
 end
 local msgs = tonumber(redis:get('msgs:'..msg.from.id..':'..msg.to.id) or 0)
 if status.result.total_count ~= 0 then
-	sendPhotoById(msg.to.id, status.result.photos[1][1].file_id, msg.id, '🌟| اسمك : '..msg.from.first_name..'\n🌟| معرفك : '..userxn..'\n🌟| ايديك : '..msg.from.id..'\n🌟| رتبتك : '..rank..'\n💬¦ عدد رسائلك : ['..msgs..'] رسالة \n')
+	sendPhotoById(msg.to.id, status.result.photos[1][1].file_id, msg.id, '🌟| اسمك : '..msg.from.first_name..'\n🌟| معرفك : '..userxn..'\n🌟| ايديك : '..msg.from.id..'\n🌟| رتبتك : '..rank..'\n💬¦ عدد رسائلك : ['..msgs..'] رسالة 👮‍♀️\n')
 	else
-return '🌟|لا توجد صورة في بروفايلك !!! \n🌟| اسمك : '..msg.from.first_name..'\n🌟| معرفك : '..userxn..'\n🌟| ايديك : '..msg.from.id..'\n🌟| رتبتك : '..rank..'\n💬¦ عدد رسائلك : ['..msgs..'] رسالة \n'
+return '🌟|لا توجد صورة في بروفايلك !!! \n🌟| اسمك : '..msg.from.first_name..'\n🌟| معرفك : '..userxn..'\n🌟| ايديك : '..msg.from.id..'\n🌟| رتبتك : '..rank..'\n💬¦ عدد رسائلك : ['..msgs..'] رسالة 👮‍♀️\n'
 end
-   elseif msg.reply_to_message and not msg.reply.fwd_from and is_mod(msg) then
-     return "["..msg.reply.id.."]"
-   elseif not string.match(matches[2], '^%d+$') and matches[2] ~= "from" and is_mod(msg) then
+   elseif not msg.reply_to_message and string.match(matches[2], '@[%a%d_]')  and matches[2] ~= "التوجيه" and is_mod(msg) then
     local status = resolve_username(matches[2])
 		if not status.result then
 			return '🌟|لا يوجد عضو بهذا المعرف ...'
 		end
      return ""..status.information.id..""
-   elseif matches[2] == "from" and msg.reply_to_message and msg.reply.fwd_from then
+   elseif matches[2] == "التوجيه" and msg.reply_to_message and msg.reply.fwd_from then
      return ""..msg.reply.fwd_from.id..""
    end
 end
@@ -1510,7 +1509,7 @@ if matches[1] == "رفع المدير" and is_sudo(msg) then
     end
    local status = resolve_username(matches[2]).information
    if data[tostring(msg.to.id)]['owners'][tostring(status.id)] then
-    return "��| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."]\n🌟| انه بالتأكيد مدير"
+    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."]\n🌟| انه بالتأكيد مدير"
     else
   data[tostring(msg.to.id)]['owners'][tostring(status.id)] = check_markdown(status.username)
     save_data(_config.moderation.data, data)
@@ -1655,11 +1654,11 @@ if matches[1] == "رفع عضو مميز"  and is_mod(msg) then
 	username = escape_markdown(msg.reply.print_name)
     end
    if data[tostring(msg.to.id)]['whitelist'][tostring(msg.reply.id)] then
-    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."]\n🌟| انه بالتأكيد تم رفعه ادمن "
+    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."]\n🌟| انه بالتأكيد تم رفعه عضو مميز "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(msg.reply.id)] = username
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| تم رفع الادمن "
+    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| تم رفع عضو مميز "
       end
 	  elseif matches[2] and matches[2]:match('^%d+') then
   if not getUser(matches[2]).result then
@@ -1670,11 +1669,11 @@ if matches[1] == "رفع عضو مميز"  and is_mod(msg) then
 		user_name = escape_markdown(getUser(matches[2]).information.first_name)
 	  end
 	  if data[tostring(msg.to.id)]['whitelist'][tostring(matches[2])] then
-    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| انه بالتأكيد تم رفعه ادمن "
+    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| انه بالتأكيد تم رفعه عضو مميز "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(matches[2])] = user_name
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| تم رفع الادمن "
+    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| تم رفع عضو مميز "
    end
    elseif matches[2] and string.match(matches[2], '@[%a%d_]')  then
   if not resolve_username(matches[2]).result then
@@ -1682,11 +1681,11 @@ if matches[1] == "رفع عضو مميز"  and is_mod(msg) then
     end
    local status = resolve_username(matches[2]).information
    if data[tostring(msg.to.id)]['whitelist'][tostring(status.id)] then
-    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| انه بالتأكيد تم رفعه ادمن "
+    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| انه بالتأكيد تم رفعه عضو مميز "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(status.id)] = check_markdown(status.username)
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| تم رفع الادمن "
+    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| تم رفع عضو مميز "
    end
 end
 end
@@ -1698,11 +1697,11 @@ if matches[1] == "تنزيل عضو مميز" and is_mod(msg) then
 	username = escape_markdown(msg.reply.print_name)
     end
    if not data[tostring(msg.to.id)]['whitelist'][tostring(msg.reply.id)] then
-    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| انه بالتأكيد تم تنزيله الادمن "
+    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| انه بالتأكيد تم تنزيله عضو مميز "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(msg.reply.id)] = nil
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| تم تنزيل الادمن "
+    return "🌟| العضو :  "..username.."\n🌟| الايدي :  ["..msg.reply.id.."] \n🌟| تم تنزيل عضو مميز "
       end
 	  elseif matches[2] and matches[2]:match('^%d+') then
   if not getUser(matches[2]).result then
@@ -1713,11 +1712,11 @@ if matches[1] == "تنزيل عضو مميز" and is_mod(msg) then
 		user_name = escape_markdown(getUser(matches[2]).information.first_name)
 	  end
 	  if not data[tostring(msg.to.id)]['whitelist'][tostring(matches[2])] then
-    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| انه بالتأكيد تم تنزيله الادمن "
+    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].."\n🌟| انه بالتأكيد تم تنزيله الاعضاء المميزين "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(matches[2])] = nil
     save_data(_config.moderation.data, data)
-    return "🌟| العض�� :  "..user_name.."\n🌟| الايدي :  "..matches[2].." \n🌟| تم تنزيل الادمن "
+    return "🌟| العضو :  "..user_name.."\n🌟| الايدي :  "..matches[2].." \n🌟| تم تنزيل الاعضاء المميزين "
       end
    elseif matches[2] and string.match(matches[2], '@[%a%d_]')  then
   if not resolve_username(matches[2]).result then
@@ -1725,11 +1724,11 @@ if matches[1] == "تنزيل عضو مميز" and is_mod(msg) then
     end
    local status = resolve_username(matches[2]).information
    if not data[tostring(msg.to.id)]['whitelist'][tostring(status.id)] then
-    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| انه بالتأكيد تم تنزيله الادمن "
+    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| انه بالتأكيد تم تنزيله الاعضاء المميزين "
     else
   data[tostring(msg.to.id)]['whitelist'][tostring(status.id)] = nil
     save_data(_config.moderation.data, data)
-    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| تم تنزيل الادمن "
+    return "🌟| العضو :  @"..check_markdown(status.username).."\n🌟| الايدي :  ["..status.id.."] \n🌟| تم تنزيل الاعضاء المميزين "
       end
 end
 end
@@ -1955,7 +1954,7 @@ return "🌟| _شكرأ لك 😻_\n🌟| _تم حفظ الرابط بنجاح _
       if not linkgp then
 return "🌟| _اوه 🙀 لا يوجد هنا رابط_\n🌟| _رجائا اكتب [ضع رابط]_🔃"
       end
-      return "🌟| رابط المجموعة  : [{ "..escape_markdown(msg.to.title).." }]("..linkgp..")"
+      return "🌟| رابط المجموعة  :\n🌟| اضغط هنا 👇🏿\n🌟|[{ "..escape_markdown(msg.to.title).." }]("..linkgp..")"
          
      end
   if matches[1] == "ضع القوانين" and matches[2] and is_mod(msg) then
@@ -1965,7 +1964,7 @@ return '🌟| _مرحبآ عزيزي_\n🌟| _تم حفظ القوانين بن�
   end
   if matches[1] == "القوانين" then
  if not data[tostring(target)]['rules'] then
-     rules = "🌟| _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🌟| _ممنوع نشر الروابط_ \n🌟| _ممنوع التكلم او نشر صور اباحيه_ \n🌟| _ممنوع  اعاده توجيه_ \n🌟| _ممنوع التكلم بلطائفه_ \n🌟| _الرجاء احترام المدراء والادمنيه _😅\n🌟| _تابع _@lBOSSl 💤"
+     rules = "🌟| _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🌟| _ممنوع نشر الروابط_ \n🌟| _ممنوع التكلم او نشر صور اباحيه_ \n🌟| _ممنوع  اعاده توجيه_ \n🌟| _ممنوع التكلم بلطائفه_ \n🌟| _الرجاء احترام المدراء والادمنيه _😅\n🌟| _تابع _@verxbot 💤"
         else
      rules =  "*🌟|القوانين :*\n"..data[tostring(target)]['rules']
       end
@@ -2123,7 +2122,7 @@ end
 if matches[2] == "الترحيب" then
 			welcome = data[tostring(msg.to.id)]['settings']['welcome']
 		if welcome == "yes" then
-return "🌟| _مرحبا عزيزي_\n🌟| _تشغيل الترحيب مفعل مسبقاً_ ☑️"
+return "🌟| _مرحبا عزيزي_\n🌟| _تشغيل الترحيب شغال مسبقاً_ ☑️"
 			else
 		data[tostring(msg.to.id)]['settings']['welcome'] = "yes"
 	    save_data(_config.moderation.data, data)
@@ -2133,7 +2132,7 @@ return "🌟| _مرحبا عزيزي_\n🌟| _تم تشغيل الترحيب_ �
 	if matches[2] == "التحذير" then
 			lock_woring = data[tostring(msg.to.id)]['settings']['lock_woring']
 		if lock_woring == "yes" then
-return "🌟| _مرحبا عزيزي_\n🌟| _تشغيل التحذير مفعل مسبقاً_ ☑️"
+return "🌟| _مرحبا عزيزي_\n🌟| _تشغيل التحذير شغال مسبقاً_ ☑️"
 			else
 		data[tostring(msg.to.id)]['settings']['lock_woring'] = "yes"
 	    save_data(_config.moderation.data, data)
@@ -2149,7 +2148,7 @@ if matches[1] == "ايقاف" and is_mod(msg) then
          if matches[2] == "الترحيب" then
     welcome = data[tostring(msg.to.id)]['settings']['welcome']
 	if welcome == "no" then
-	return "🌟| _مرحبا عزيزي_\n🌟| _الترحيب بالتأكيد معطل_ ☑️"
+	return "🌟| _مرحبا عزيزي_\n🌟| _الترحيب بالتأكيد متوقف_ ☑️"
 			else
 		data[tostring(msg.to.id)]['settings']['welcome'] = "no"
 	    save_data(_config.moderation.data, data)
@@ -2160,7 +2159,7 @@ end
       if matches[2] == "التحذير" then
     lock_woring = data[tostring(msg.to.id)]['settings']['lock_woring']
 	if lock_woring == "no" then
-	return "🌟| _مرحبا عزيزي_\n🌟| _التحذير بالتأكيد معطل_ ☑️"
+	return "🌟| _مرحبا عزيزي_\n🌟| _التحذير بالتأكيد متوقف_ ☑️"
 			else
 		data[tostring(msg.to.id)]['settings']['lock_woring'] = "no"
 	    save_data(_config.moderation.data, data)
@@ -2178,9 +2177,13 @@ if matches[1] == "الترحيب"  and is_mod(msg) then
 		if data[tostring(msg.to.id)]['setwelcome']  then
 	    return data[tostring(msg.to.id)]['setwelcome']  
 	    else
-		return "🌟| مرحباً عزيزي\n🌟| نورت المجموعه \n🌟| تابع : @lBOSSl"
+		return "🌟| مرحباً عزيزي\n🌟| نورت المجموعه \n🌟| تابع : @verxbot"
 	end
-	end
+end
+if matches[1]== 'رسائلي' or matches[1]=='رسايلي' then
+local msgs = tonumber(redis:get('msgs:'..msg.from.id..':'..msg.to.id) or 0)
+return '💬¦ عدد رسائلك : `'..msgs..'` رسالة 👮‍♀️ \n\n'
+ end
 ----------------End Msg Matches--------------
 end
 local function pre_process(msg)
@@ -2213,13 +2216,13 @@ setChatPhoto(msg.to.id, gpPhotoFile)
     if data[tostring(msg.to.id)]['setwelcome'] then
      welcome = data[tostring(msg.to.id)]['setwelcome']
       else
-	welcome = "🌟| مرحباً عزيزي\n🌟| نورت المجموعة \n🌟| تابع : @lBOSSl"
+	welcome = "🌟| مرحباً عزيزي\n🌟| نورت المجموعة \n🌟| تابع : @verxbot"
 
-     end
+end
  if data[tostring(msg.to.id)]['rules'] then
 rules = data[tostring(msg.to.id)]['rules']
 else
-     rules = "🌟| _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🌟| _ممنوع نشر الروابط_ \n🌟| _ممنوع التكلم او نشر صور اباحيه_ \n🌟| _ممنوع  اعاده توجيه_ \n🌟| _ممنوع التكلم بلطائفه_ \n🌟| _الرجاء احترام المدراء والادمنيه _😅\n🌟| _تابع _@lBOSSl 💤"
+     rules = "🌟| _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🌟| _ممنوع نشر الروابط_ \n🌟| _ممنوع التكلم او نشر صور اباحيه_ \n🌟| _ممنوع  اعاده توجيه_ \n🌟| _ممنوع التكلم بلطائفه_ \n🌟| _الرجاء احترام المدراء والادمنيه _😅\n🌟| _تابع _@verxbot 💤"
 end
 if msg.newuser.username then
 user_name = "@"..check_markdown(msg.newuser.username)
@@ -2288,6 +2291,8 @@ return {
 "^(تثبيت)$",
 "^(الغاء التثبيت)$",
 "^(الوصف)$",
+"^(رسائلي)$",
+"^(رسايلي)$",
 "^(ضع وصف) (.*)$",
 "^(ضع تكرار) (%d+)$",
 "^([https?://w]*.?telegram.me/joinchat/%S+)$",
