@@ -1,8 +1,9 @@
+
 package.path = package.path..';.luarocks/share/lua/5.2/?.lua;.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
 bot_token = "TOKEN"
 send_api = "https://api.telegram.org/bot"..bot_token
-sudo_id = 60809019
+sudo_id = 60809019  -- YOUR ID  
 http = require('socket.http')
 https = require('ssl.https')
 URL = require('socket.url')
@@ -15,14 +16,14 @@ JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
 require('./bot/methods')
 require('./bot/utils')
--- @lBOSSl
+
 function bot_run()
 	bot = nil
 	while not bot do
 		bot = send_req(send_api.."/getMe")
 	end
 	bot = bot.result
-	local runlog = bot.first_name.." [@"..bot.username.."]\nis run in: "..os.date("%F - %H:%M:%S")
+	local runlog = "🌟| معرف بوتك : @"..bot.username.."\n🌟|يعمل ع سورس الـزعـيـم  توكن اصدار 18 👮‍♀️\n🌟| تابع قناة السورس @lBOSSl"
 	print(runlog)
 	send_msg(sudo_id, runlog)
 	last_update = last_update or 0
@@ -66,9 +67,9 @@ function save_data(filename, data)
 end
 
 function msg_valid(msg)
-local msg_time = os.time() - 1
+local msg_time = os.time() - 2
   if msg.date < tonumber(msg_time) then
-    print('\27[36m》》OLD MESSAGE《《\27[39m')
+    print('\27[36m》》ֆνєявσт it is old msg《《\27[39m')
     return false
 end
 
@@ -111,7 +112,7 @@ if plugin.pre_process then
     local matches = match_pattern(pattern, msg.text or msg.caption or msg.query)
     if matches then
 
-      print("msg matches: ", pattern)
+      print("الملف :"..plugin_name.." |"..pattern)
       -- Function exists
       if plugin.run then
         -- If plugin is for privileged users only
@@ -150,12 +151,12 @@ end
 -- Save the content of _config to config.lua
 function save_config( )
   serialize_to_file(_config, './data/config.lua')
-  print ('saved config into ./data/config.lua')
+  print ('تم حفظ البيانات في الـ  ./data/config.lua')
 end
 
 -- Create a basic config.json file and saves it.
 function create_config( )
-	io.write('\n\27[1;33m>> Input your Telegram ID for set Sudo :\27[0;39;49m')
+	io.write('\n\27[1;33m>> ادخل ايديك لتصبح مطور في البوت  :\27[0;39;49m')
 	local SUDO = tonumber(io.read())
 if not tostring(SUDO):match('%d+') then
     SUDO = 60809019
@@ -175,7 +176,7 @@ if not tostring(SUDO):match('%d+') then
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*🌟| TH3BOSS  V18*
+ info_text = [[*🌟| TH3BOSS  V18*
   
 🌟|An advanced administration bot based on *TH3BOSS*
 
@@ -201,7 +202,7 @@ TEAMBOSS Members
 ]],
   }
   serialize_to_file(config, './data/config.lua')
-  print('saved config into ./data/config.lua')
+  print('تم حفظ البيانات في الـ ./data/config.lua')
 end
 
 -- Returns the config from config.lua file.
@@ -210,14 +211,14 @@ function load_config( )
   local f = io.open('./data/config.lua', "r")
   -- If config.lua doesn't exist
   if not f then
-    print ("Created new config file: data/config.lua")
+    print ("تم انشاء كونفك جديد: data/config.lua")
     create_config()
   else
     f:close()
   end
   local config = loadfile ("./data/config.lua")()
   for v,user in pairs(config.sudo_users) do
-    print("Sudo user: " .. user)
+    print("ايدي المطور: " .. user)
   end
   return config
 end
@@ -226,7 +227,7 @@ _config = load_config( )
 -- Enable plugins in config.json
 function load_plugins()
   for k, v in pairs(_config.enabled_plugins) do
-    print("Loading plugin", v)
+    print("الملف شـغـال : ", v)
 
     local ok, err =  pcall(function()
       local t = loadfile("plugins/"..v..'.lua')()
@@ -263,7 +264,7 @@ handle_inline_keyboards_cb(v.callback_query)
 			end
 		end
 	else
-		print("error while")
+		print("خطا في التكرار")
 		return
 	end
 	if last_cron < os.time() - 30 then
