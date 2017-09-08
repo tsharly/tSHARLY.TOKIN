@@ -180,7 +180,7 @@ if not tostring(SUDO):match('%d+') then
   
 🌟|An advanced administration bot based on *TH3BOSS*
 
-🌟|[TH3BOSS](https://github.com/moody2020/BOSSTOKEN)
+🌟|[TH3BOSS](https://github.com/moody2020/TOKEN)
 
 *🌟|Admins :*
 
