@@ -69,7 +69,7 @@ end
 function msg_valid(msg)
 local msg_time = os.time() - 2
   if msg.date < tonumber(msg_time) then
-    print('\27[36m》》ֆνєявσт it is old msg《《\27[39m')
+    print('\27[36m》》TOKEN V18 it is old msg《《\27[39m')
     return false
 end
 
