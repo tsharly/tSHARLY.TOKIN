@@ -4,17 +4,18 @@ package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
 bot_token = "TOKEN"
 send_api = "https://api.telegram.org/bot"..bot_token
 sudo_id = 60809019  -- YOUR ID  
-require('./bot/methods')
-require('./bot/utils')
-require('./libs/JSON')
 http = require('socket.http')
 https = require('ssl.https')
 URL = require('socket.url')
+curl = require('cURL')
+ltn12 = require("ltn12")
+cUrl_Command = curl.easy{verbose = true}
 redis = (loadfile "./libs/redis.lua")()
 json = (loadfile "./libs/JSON.lua")()
 JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
-
+require('./bot/methods')
+require('./bot/utils')
 function bot_run()
 	bot = nil
 	while not bot do
