@@ -1,5 +1,4 @@
--- BY @TH3BOSS
--- BY @lBOSSl
+
  local clock = os.clock
 function sleep(time)  -- seconds
   local t0 = clock()
@@ -457,7 +456,7 @@ end
 
 function is_BDChannel_member(user_id, chat_id, msg_id)
 local var = true
-local getmember = getChatMember(BeyondTeam, user_id).result
+local getmember = getChatMember(devasl, user_id).result
 local is_not_member = getmember.status == "left" or getmember.status == "kicked"
     if is_not_member and not is_admin1(user_id) then
     var = false
@@ -526,8 +525,7 @@ if not is_gbanned(user_id) then
   data['gban_users'][tostring(user_id)] = nil
     save_data(_config.moderation.data, data)
   end
--- BY @TH3BOSS
--- BY @lBOSSl
+
  function banned_list(chat_id)
 local hash = "group_lang:"..chat_id
 local lang = redis:get(hash)
@@ -695,8 +693,7 @@ else
          end
      return filterlist
    end
--- @TH3BOSS
--- @lBOSSl
+
 function get_var_inline(msg)
 if msg.query then
 if msg.query:match("-%d+") then
