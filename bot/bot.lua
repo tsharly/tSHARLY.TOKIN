@@ -1,8 +1,8 @@
 package.path = package.path..';.luarocks/share/lua/5.2/?.lua;.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
-bot_token = "TOKEN"
+bot_token = "التوكن"
 send_api = "https://api.telegram.org/bot"..bot_token
-sudo_id = 60809019
+sudo_id = 391387935
 http = require('socket.http')
 https = require('ssl.https')
 URL = require('socket.url')
@@ -15,7 +15,7 @@ JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
 require('./bot/methods')
 require('./bot/utils')
--- @lBOSSl
+
 function bot_run()
 	bot = nil
 	while not bot do
@@ -155,10 +155,10 @@ end
 
 -- Create a basic config.json file and saves it.
 function create_config( )
-	io.write('\n\27[1;33m>> Input your Telegram ID for set Sudo :\27[0;39;49m')
+	io.write('\n\27[1;33m>> Input your ID for set Sudo :\27[0;39;49m')
 	local SUDO = tonumber(io.read())
 if not tostring(SUDO):match('%d+') then
-    SUDO = 60809019
+    SUDO = 391387935
   end
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
@@ -170,34 +170,26 @@ if not tostring(SUDO):match('%d+') then
     "banhammer",
     "replay",
     },
-    sudo_users = {60809019, SUDO},--Sudo users
+    sudo_users = {391387935, SUDO},--Sudo users
     master_id = SUDO, 
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*🌟| TH3BOSS  V18*
+    info_text = [[*🌟| TSHARLY V1*
   
-🌟|An advanced administration bot based on *TH3BOSS*
+🌟|سـورس تشــارلي الافـضل على التـلكَرام *TSHARLY*
 
-🌟|[TH3BOSS](https://github.com/moody2020/BOSSTOKEN)
+🌟|[GITHUB LINK](https://github.com/tsharly/tSHARLY.TOKIN)
 
-*🌟|Admins :*
+_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
 
-_🌟|Developer :_ [TH3BOSS](Telegram.Me/TH3BOSS)
+*🌟|CH TEAM :*
 
-_🌟|Developer :_ [BOSS](Telegram.Me/lBOSSl)
+🌟|[TSHARLY](Telegram.Me/DEVASL)
 
-*🌟|Special thanks to :*
-
-TEAMBOSS Members
-
-*🌟|Our channel :*
-
-🌟|[TEAMBOSS](Telegram.Me/LLDEV1LL)
-
-*🌟|Our Group Manger :*
-
-[Group Manger](Telegram.Me/lBOSSl)
 ]],
   }
   serialize_to_file(config, './data/config.lua')
