@@ -24,12 +24,13 @@ install() {
 
 function print_logo() {
 	green " "
-	green "                 ____ _____ _   _ _____ ____   ___  ____ ____  
-                 / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
-                / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
-               | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
-                \ \__,_||_| |_| |_|____/|____/ \___/|____/____/ 
-                 \____/ "
+	green "                  #####   #     #     #     ######   #        #     # 
+                         #####  #     #  #     #    # #    #     #  #         #   #  
+                           #    #        #     #   #   #   #     #  #          # #   
+                           #     #####   #######  #     #  ######   #           #    
+                           #          #  #     #  #######  #   #    #           #    
+                           #    #     #  #     #  #     #  #    #   #           #    
+                           #     #####   #     #  #     #  #     #  #######     #    "
 	green " "
 	green " "
 	echo -e "\n\e[0m"
@@ -39,12 +40,13 @@ function logo_play() {
     declare -A txtlogo
     seconds="0.010"
     txtlogo[1]=" "
-    txtlogo[2]="            ____ _____ _   _ _____ ____   ___  ____ ____  
-                 / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
-                / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
-               | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
-                \ \__,_||_| |_| |_|____/|____/ \___/|____/____/ 
-                 \____/ "
+    txtlogo[2]="                 #####   #     #     #     ######   #        #     # 
+                         #####  #     #  #     #    # #    #     #  #         #   #  
+                           #    #        #     #   #   #   #     #  #          # #   
+                           #     #####   #######  #     #  ######   #           #    
+                           #          #  #     #  #######  #   #    #           #    
+                           #    #     #  #     #  #     #  #    #   #           #    
+                           #     #####   #     #  #     #  #     #  #######     #    "
     txtlogo[3]=" "
     txtlogo[4]=" "
     printf "\e[31m\t"
@@ -59,14 +61,14 @@ function logo_play() {
 	echo -e "\e[0m"
 }
 
-function th3boss() {
+function TSHARLY() {
 	echo -e "\e[0m"
-   	  red "     >>>>                         🌟| We Are Not Attacker                             "
-    green "     >>>>                       🌟| We Are Not Alliance                             "
-	white "     >>>>                       🌟| We Are Programmer                               "
-	white "     >>>>                       🌟| We Are The Best                                 "
-	  red "     >>>>                       🌟| We Are Family                                   "
-	  red "     >>>>                       🌟| @llDEV1ll                                       "
+   	  red "     >>>>                       🌟| نحن الافضل                                 "
+        green "     >>>>                       🌟| نحن الاقوى                                 "
+	white "     >>>>                       🌟| نحن المبرمجين                             "
+	white "     >>>>                       🌟| اطلب سورسك الان                            "
+	  red "     >>>>                       🌟| نحن عائله واحده                           "
+	  red "     >>>>                       🌟| @DEVASL TEAM THE BEST                      "
 	echo -e "\e[0m"
 }
 
@@ -85,18 +87,18 @@ update() {
 
 if [ "$1" = "install" ]; then
 	print_logo
-	th3boss
+	TSHARLY
 	logo_play
 	install
 elif [ "$1" = "update" ]; then
 	logo_play
-	th3boss
+	TSHARLY
 	update
 	exit 1
 else
 	print_logo
-	th3boss
+	TSHARLY
 	logo_play
-	green " TH3BOSS V18 Bot running..."
+	green " سـورس تــشارلـي يعمل الان ..."
 	lua ./bot/bot.lua
 fi
