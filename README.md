@@ -1,21 +1,20 @@
-# [<< TOKEN >> V18 (Final Version)](https://telegram.me/llDEV1ll)
+# [<< TSHARLY V1 >> TOKIN (Final Version)](https://telegram.me/DEVASL)
 
-**An advanced and powerful administration bot based on NEW TG-CLI
+**افضل سورس عربي على التلكرام
 
 
 * * *
 
-
-# Installation
+# التنصيب
 
 
 ```sh
-<< TH3BOSS >>
+<< TSHARLY >>
 
 🔸➖🔹➖🔸➖🔹
-<< V18 WE ARE TH3BEST >>
+<< TSHARLY V1 >>
 🔸➖🔹➖🔸➖🔹
- << كـيـفـيـه تـنـصـيـب سـورس الـزعـيـم >>
+ << كـيـفـيـه تـنـصـيـب سـورس تشــارلي >>
 🔸➖🔹➖🔸➖🔹
  << افتـح ترمنـــأل وخلي >>
 🔸➖🔹➖🔸➖🔹
@@ -23,15 +22,15 @@
 🔸➖🔹➖🔸➖🔹
 cd $HOME
 🔸➖🔹➖🔸➖🔹
-git clone https://github.com/moody2020/TOKEN.git
+git clone https://github.com/tsharly/tSHARLY.TOKIN.git
 🔸➖🔹➖🔸➖🔹
-cd TOKEN
+cd tSHARLY.TOKIN
 🔸➖🔹➖🔸➖🔹
-chmod +x TOKEN.sh
+chmod +x TSHARLY.sh
 🔸➖🔹➖🔸➖🔹
-./TOKEN.sh install
+./TSHARLY.sh install
 🔸➖🔹➖🔸➖🔹
-./TOKEN.sh 
+./TSHARLY.sh 
 🔸➖🔹➖🔸➖🔹
 * * *
 
@@ -44,50 +43,28 @@ chmod +x TOKEN.sh
 🔸➖🔹➖🔸➖🔹
 # For Auto Launch >>
 🔸➖🔹➖🔸➖🔹
-cd TOKEN
+cd tSHARLY.TOKIN
 🔸➖🔹➖🔸➖🔹
 chmod 777 autobd.sh
 🔸➖🔹➖🔸➖🔹
 screen ./autobd.sh
 🔸➖🔹➖🔸➖🔹
-<< TOKEN >>
-
-<< # Dev Bot @TH3BOSS >>
-
-<< # Channel Bot @lBOSSl >>
+<< TSHARLY V1 >>
 ```
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TOKEN.sh install && ./TOKEN.sh
+cd $HOME && git clone https://github.com/tsharly/tSHARLY.TOKIN.git && cd tSHARLY.TOKIN && chmod +x TSHARLY.sh && ./TSHARLY.sh install && ./TSHARLY.sh
 
 OR
 
-cd $HOME && git clone https://github.com/moody2020/TOKEN.git && cd TOKEN && chmod +x TOKEN.sh && ./TOKEN.sh install && chmod 777 autobd.sh && screen ./autobd.sh
+cd $HOME && git clone https://github.com/tsharly/tSHARLY.TOKIN.git && cd tSHARLY.TOKIN && chmod +x TSHARLY.sh && ./TSHARLY.sh install && chmod 777 autobd.sh && screen ./autobd.sh
 ```
-
-* * *
-
-# Support and Development
-
-More information [TOKEN Global Chat](https://t.me/lBOSSl)
-
-More information [TOKEN Channel](https://t.me/llDEV1ll)
-
-
-* * *
 
 # Developers !
 
-[TOKEN](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
-
-[Mohammed Hisham](https://github.com/moody2020) ([Telegram](https://telegram.me/lBOSSl))
-
-[TEAMBOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/llDEV1ll))
-
-
-### Our Telegram channel : [@llDEV1ll](https://telegram.me/llDEV1ll)
-
-# Special thanks to Omar Alsaray : [@blcon](https://telegram.me/blcon)
-
-# [<< TOKEN >> V18 (Final Version)](https://telegram.me/llDEV1ll)
+[1](#)
+[2](https://github.com/moody2020) 
+[3](https://github.com/moody2020)
+[4](https://github.com/moody2020)
+[5](https://github.com/moody2020)
