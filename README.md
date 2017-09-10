@@ -1,10 +1,5 @@
 # [<< TSHARLY V1 >> TOKIN (Final Version)](https://telegram.me/DEVASL)
 
-**افضل سورس عربي على التلكرام
-
-
-* * *
-
 # التنصيب
 
 
