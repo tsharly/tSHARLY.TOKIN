@@ -1,4 +1,4 @@
-# [<< TSHARLY V1 >> TOKIN (Final Version)](https://telegram.me/DEVASL)
+# (TSHARLY V1)(https://telegram.me/DEVASL)
 
 # التنصيب
 
