@@ -1,28 +1,119 @@
 
 package.path = package.path..';.luarocks/share/lua/5.2/?.lua;.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath..';.luarocks/lib/lua/5.2/?.so'
-bot_token = "TOKEN"
-send_api = "https://api.telegram.org/bot"..bot_token
-sudo_id = 60809019  -- YOUR ID  
+require('./bot/utils')
+require('./bot/methods')
 http = require('socket.http')
+JSON = (loadfile "./libs/dkjson.lua")()
 https = require('ssl.https')
 URL = require('socket.url')
 curl = require('cURL')
 ltn12 = require("ltn12")
-cUrl_Command = curl.easy{verbose = true}
 redis = (loadfile "./libs/redis.lua")()
 json = (loadfile "./libs/JSON.lua")()
 JSON = (loadfile "./libs/dkjson.lua")()
 serpent = (loadfile "./libs/serpent.lua")()
-require('./bot/methods')
-require('./bot/utils')
+
+-- Save the content of _config to config.lua
+-- Create a basic config.json file and saves it.
+function save_config( )
+  serialize_to_file(_config, './data/config.lua')
+  print ('./data/config.lua تم حفظ البيانات في الـ')
+end
+
+function create_config( )
+	io.write('\n\27[1;33mEnter Your Account ID To become A Developer : \27[0;39;49m')
+	local SUDO = tonumber(io.read())
+if not tostring(SUDO):match('%d+') then
+    SUDO = 60809019
+  end
+  	io.write('\n\27[1;33mSend Token Bot Now : \27[0;39;49m')
+	local token = io.read()
+  -- A simple config with basic plugins and ourselves as privileged user
+  config = {
+    enabled_plugins = {
+   "plugins",
+    "msg_checks",
+    "groupmanager",
+    "tools",
+    "banhammer",
+    "replay",
+    },
+    sudo_users = {60809019, SUDO},--Sudo users
+    master_id = SUDO, 
+    token_bot = token, 
+    disabled_channels = {},
+    moderation = {data = './data/moderation.json'},
+    info_text = [[*🌟| TH3BOSS  V18*
+  
+🌟|An advanced administration bot based on *TH3BOSS*
+
+🌟|[TH3BOSS](https://github.com/moody2020/TH3BOSS)
+
+*🌟|Admins :*
+
+_🌟|Developer :_ [TH3BOSS](Telegram.Me/TH3BOSS)
+
+_🌟|Developer :_ [BOSS](Telegram.Me/lBOSSl)
+
+*🌟|Special thanks to :*
+
+TEAMBOSS Members
+
+*🌟|Our channel :*
+
+🌟|[TEAMBOSS](Telegram.Me/LLDEV1LL)
+
+*🌟|Our Group Manger :*
+
+[Group Manger](Telegram.Me/lBOSSl)
+]],
+  }
+  serialize_to_file(config, './data/config.lua')
+  print('تم حفظ البيانات في الـكونفك سوف يتم تشغيل البوت')
+end
+
+
+function load_config( )
+  local f = io.open('./data/config.lua', "r")
+  -- If config.lua doesn't exist
+  if not f then
+print ("\n🌟|  جاري انشاء الكونفك :\n🌟|  خلي ايديك والتوكن وسوف يشتغل بوتك\n🌟| سورس الزعيم الاصدار 19")    create_config()
+  else
+    f:close()
+  end
+  local config = loadfile ("./data/config.lua")()
+  for v,user in pairs(config.sudo_users) do
+    print("ايدي المطور: " .. user)
+  end
+  return config
+end
+_config = load_config( )
+
+
+
+ if _config then
+token_th2boss = _config.token_bot
+master_idx = _config.master_id
+else
+token_th2boss = ""
+master_idx = 60809019
+end
+
+
+send_api = "https://api.telegram.org/bot"..token_th2boss
+sudo_id = master_idx
+
+cUrl_Command = curl.easy{verbose = true}
+
+
 function bot_run()
 	bot = nil
 	while not bot do
 		bot = send_req(send_api.."/getMe")
 	end
 	bot = bot.result
-	local runlog = "🌟| معرف بوتك : @"..bot.username.."\n🌟|يعمل ع سورس الـزعـيـم  توكن اصدار 18 👮‍♀️\n🌟| تابع قناة السورس @lBOSSl"
+	local runlog = "🌟| معرف بوتك : @"..bot.username.."\n🌟|يعمل ع سورس الـزعـيـم  توكن اصدار 18 👮‍♀️\n🌟| تابع قناه السورس @lBOSSl"
 	print(runlog)
 	send_msg(sudo_id, runlog)
 	last_update = last_update or 0
@@ -68,7 +159,7 @@ end
 function msg_valid(msg)
 local msg_time = os.time() - 2
   if msg.date < tonumber(msg_time) then
-    print('\27[36m》》TOKEN V18 it is old msg《《\27[39m')
+    print('\27[36m》》رسائل سابقه《《\27[39m')
     return false
 end
 
@@ -147,62 +238,6 @@ else -- if keyboard send via
   msg.target_id = msg.data:match('.*:(-?%d+)')
   return get_var(msg)
 end
--- Save the content of _config to config.lua
-function save_config( )
-  serialize_to_file(_config, './data/config.lua')
-  print ('تم حفظ البيانات في الـ  ./data/config.lua')
-end
-
--- Create a basic config.json file and saves it.
-function create_config( )
-	io.write('\n\27[1;33m>> ادخل ايديك لتصبح مطور في البوت  :\27[0;39;49m')
-	local SUDO = tonumber(io.read())
-if not tostring(SUDO):match('%d+') then
-    SUDO = 60809019
-  end
-  -- A simple config with basic plugins and ourselves as privileged user
-  config = {
-    enabled_plugins = {
-   "plugins",
-    "msg_checks",
-    "groupmanager",
-    "tools",
-    "banhammer",
-    "replay",
-    },
-    sudo_users = {60809019, SUDO},--Sudo users
-    master_id = SUDO, 
-    admins = {},
-    disabled_channels = {},
-    moderation = {data = './data/moderation.json'},
- info_text = [[*🌟| TH3BOSS  V18*
-  
-🌟|An advanced administration bot based on *TH3BOSS*
-
-🌟|[TH3BOSS](https://github.com/moody2020/TOKEN)
-
-*🌟|Admins :*
-
-_🌟|Developer :_ [TH3BOSS](Telegram.Me/TH3BOSS)
-
-_🌟|Developer :_ [BOSS](Telegram.Me/lBOSSl)
-
-*🌟|Special thanks to :*
-
-TEAMBOSS Members
-
-*🌟|Our channel :*
-
-🌟|[TEAMBOSS](Telegram.Me/LLDEV1LL)
-
-*🌟|Our Group Manger :*
-
-[Group Manger](Telegram.Me/lBOSSl)
-]],
-  }
-  serialize_to_file(config, './data/config.lua')
-  print('تم حفظ البيانات في الـ ./data/config.lua')
-end
 
 -- Returns the config from config.lua file.
 -- If file doesn't exist, create it.
@@ -210,7 +245,7 @@ function load_config( )
   local f = io.open('./data/config.lua', "r")
   -- If config.lua doesn't exist
   if not f then
-    print ("تم انشاء كونفك جديد: data/config.lua")
+print ("\n🌟|  جاري انشاء الكونفك :\n🌟|  خلي ايديك والتوكن وسوف يشتغل بوتك\n🌟| سورس الزعيم الاصدار 19")    create_config()
     create_config()
   else
     f:close()
