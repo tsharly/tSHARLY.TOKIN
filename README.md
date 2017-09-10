@@ -1,5 +1,3 @@
-# (TSHARLY V1)(https://telegram.me/DEVASL)
-
 # التنصيب
 
 
