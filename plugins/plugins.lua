@@ -1,4 +1,4 @@
--- BY @TH3BOSSdo 
+
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
     if name == v then 
@@ -7,7 +7,7 @@ local function plugin_enabled( name )
   end 
   return false 
 end 
--- BY @TH3BOSS
+
 local function plugin_exists( name ) 
   for k,v in pairs(plugins_names()) do 
     if name..'.lua' == v then 
@@ -38,7 +38,7 @@ local function list_all_plugins(only_enabled)
       text = text..nsum..'-'..status..' '..check_markdown(v)..' \n'
     end
   end
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'الملـــفــات 💯 \n'..text..'\nعدد الملفات 📂['..nsum..']\n عدد الملفات المفعله ✔️['..nact..']\nعدد الملفات الغير مفعله ✖️['..nsum-nact..']'
   return text
 end
 local function list_plugins(only_enabled) 
@@ -59,7 +59,7 @@ local function list_plugins(only_enabled)
       text = text..status..'➠ '..v..'\n' 
     end 
   end 
-  local text = 'جْـــمٌــيَــ؏ الُـمٌـلُـفَـاتْ 💯 \n'..text..'\n●ْ عــدِد ڪلِ الُـمٌـلُــفَــاتْ ↜['..nsum..']\n● ْعـدِدِ الُمٌلُفَاتْ الُمٌفَْعلُــُه ↜['..nact..']\n● ْعـدِدِ الُمٌـلُـفَاتْ الُمٌْعطِلُُه ↜['..nsum-nact..']'
+  local text = 'الملـــفــات 💯 \n'..text..'\nعدد الملفات 📂['..nsum..']\n عدد الملفات المفعله ✔️['..nact..']\nعدد الملفات الغير مفعله ✖️['..nsum-nact..']'
   return text 
 end 
 
@@ -68,7 +68,7 @@ local function reload_plugins( )
   load_plugins() 
   return list_plugins(true) 
 end 
--- BY @TH3BOSS
+
 local function enable_plugin( plugin_name ) 
   print('checking if '..plugin_name..' exists') 
   if plugin_enabled(plugin_name) then 
@@ -106,7 +106,7 @@ local function run(msg, matches) -- BY @TH3BOSS
   end 
   if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     if matches[2] == 'plugins'  then 
-       return '🛠عود انته لوتي تريد تعطل اوامر التحكم بالملفات 🌚' 
+       return 'لا يمـكنك تعطـيل هذا الملـف لانه ملـف الاوامـر 🌚❤️' 
     end 
     return disable_plugin(matches[2]) 
   end 
@@ -123,7 +123,7 @@ local function run(msg, matches) -- BY @TH3BOSS
   for k, v in pairs( plugins_names( )) do  
       -- get the name 
       v = string.match (v, "(.*)%.lua") 
-sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@lBOSSl")
+sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@SnAK_BoT")
 
   end 
 else
@@ -132,12 +132,11 @@ local file = matches[2]
     return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   else 
 send_msg(msg.to.id, 'انتضر عزيزي \nسـارسـل لـك الـمـلـف↜ '..matches[2]..'\nيـا '..(msg.from.first_name or "---")..'\n', msg.id, 'md')
-sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@lBOSSl")
+sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@SnAK_BoT")
 end
 end
 end
  
--- BY @TH3BOSS
 if (matches[1] == "dp" or matches[1] == "حذف ملف")  and matches[2] and is_sudo(msg) then 
 disable_plugin(matches[2]) 
 if disable_plugin(matches[2]) == '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n' then
