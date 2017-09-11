@@ -8,7 +8,7 @@ local is_channel = msg.to.type == "supergroup"
 local is_chat = msg.to.type == "group"
 local auto_leave = 'AutoLeaveBot'
 local TIME_CHECK = 2
-if msg.from.username then -- فانكشن اليوزرنيم
+if msg.from.username then 
 usernamex = "@"..(msg.from.username or "---")
 else
 usernamex = "ما مسوي  😹💔"
@@ -17,7 +17,7 @@ end
 if is_channel or is_chat then
 if msg.text and msg.text:match("(.*)") then
 if not data[tostring(chat)] and not redis:get(auto_leave) and not is_sudo(msg) then
-send_msg(chat, "🌟|  سوف اغادر _ المجموعه ليست في قائمة _ *مجموعاتي* ", nil, "md")
+send_msg(chat, "🎅🏻|  سوف اغادر _ المجموعه ليست في قائمة _ *مجموعاتي* ", nil, "md")
 leave_group(chat)
 end
 end
@@ -75,7 +75,7 @@ end
 if not redis:get('sender:'..user..':flood') then
 del_msg(chat, msg.id)
 kick_user(user, chat)
-send_msg(chat, "🌟| _العضو_ :  "..user_name.."\n🌟|_ الايدي_ : ["..user.."]\n🌟|_  عذرا ممنوع التكرار لقد تم طردك 👮‍♀️\n", nil, "md")
+send_msg(chat, "🎅🏻| _العضو_ :  "..user_name.."\n🎅🏻|_ الايدي_ : ["..user.."]\n🎅🏻|_  عذرا ممنوع التكرار لقد تم طردك 👮‍♀️\n", nil, "md")
 redis:setex('sender:'..user..':flood', 30, true)
 end
 end
@@ -91,7 +91,7 @@ pinChatMessage(chat, pin_msg)
 elseif not pin_msg then
 unpinChatMessage(chat)
 end
-send_msg(chat, '<b>🌟|  الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟|  المعرف :</b> '..usernamex..'\n<i>🌟| عذرا التثبيث في هذه المجموعه مقفل ?  </i>', msg.id, "html")
+send_msg(chat, '<b>🎅🏻|  الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻|  المعرف :</b> '..usernamex..'\n<i>🎅🏻| عذرا التثبيث في هذه المجموعه مقفل ?  </i>', msg.id, "html")
 end
 end
 
@@ -99,13 +99,13 @@ if msg.message_edited and settings.lock_edit == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع التعديل 🙌🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.fwd_from and mutes.mute_forward == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع عمل اعادة التوجيه ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.text then
 local link_msg = msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or msg.text:match("[Tt].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
@@ -115,19 +115,19 @@ elseif string.len(msg.text) > 850 and settings.lock_spam == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال الكليشه عزيزي ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif link_msg and settings.lock_link == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الروابط ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif ( msg.text:match("@") or msg.text:match("#")) and settings.lock_tag == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال التاك او المعرف ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif is_filter(msg, msg.text) then
  del_msg(chat, tonumber(msg.id))
@@ -137,55 +137,55 @@ elseif msg.photo and mutes.mute_photo == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الصور ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.video and mutes.mute_video == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الفيديو ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.document and mutes.mute_document == "yes" and msg.document.mime_type ~= "audio/mpeg" and msg.document.mime_type ~= "video/mp4" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الملفات ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.sticker and mutes.mute_sticker == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الملصقات ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.document and msg.document.mime_type == "video/mp4" and mutes.mute_gif == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارساله صور المتحركه ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.contact and mutes.mute_contact == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا يمنع ارسال الجهات الاتصال ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.location and mutes.mute_location == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال موقعك ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.voice and mutes.mute_voice == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال البصمات ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.document and msg.document.mime_type == "audio/mpeg" and mutes.mute_audio == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الصوت ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif msg.caption then
 local link_caption = msg.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.caption:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or msg.caption:match("[Tt].[Mm][Ee]/") or msg.caption:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/")
@@ -194,13 +194,13 @@ if link_caption and settings.lock_link == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | عذرا ممنوع ارسال الروابط ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif (msg.caption:match("@") or msg.caption:match("#")) and settings.lock_tag == "yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال تاك او معرف ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 elseif is_filter(msg, msg.caption) then
  del_msg(chat, tonumber(msg.id))
@@ -214,7 +214,7 @@ if settings.lock_webpage =="yes" then
  del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال روابط الويب ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 end
 end
@@ -224,7 +224,7 @@ if settings.lock_markdown == "yes" then
 del_msg(chat, tonumber(msg.id))
  if settings.lock_woring ==  "yes" then
 local msgx = "🗣 | ممنوع ارسال الماركدوان  ✋🏿"
-send_msg(chat, '<b>🌟| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🌟| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🌟| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
+send_msg(chat, '<b>🎅🏻| العضو :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🎅🏻| الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🎅🏻| المعرف :</b> '..usernamex..'\n'..msgx, nil, "html")    
 end
 end
 end
