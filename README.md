@@ -52,7 +52,7 @@ cd $HOME && git clone https://github.com/tsharly/tSHARLY.TOKIN.git && cd tSHARLY
 # Developers !
 
 [1](#)
-[2](https://github.com/moody2020) 
-[3](https://github.com/moody2020)
-[4](https://github.com/moody2020)
-[5](https://github.com/moody2020)
+[2](#) 
+[3](#)
+[4](#)
+[5](#)
