@@ -97,7 +97,7 @@ local function disable_plugin( name, chat )
   return reload_plugins(true) 
 end 
 
-local function run(msg, matches) -- BY @TH3BOSS
+local function run(msg, matches) 
   if matches[1] == 'الملفات' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
     return list_all_plugins() 
   end 
@@ -163,5 +163,3 @@ return {
   run = run, 
   moderated = true, 
 } 
-
--- BY @TH3BOSS
