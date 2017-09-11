@@ -80,17 +80,17 @@ local function enable_plugin( plugin_name )
     save_config() 
     return reload_plugins( ) 
   else 
-    return '🌟| لا يوجد ملف بهذا الاسم ‼️\n➠ '..plugin_name..''
+    return '🎅🏻| لا يوجد ملف بهذا الاسم ‼️\n➠ '..plugin_name..''
   end 
 end 
 
 local function disable_plugin( name, chat ) 
   if not plugin_exists(name) then 
-    return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
+    return '🎅🏻| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   end 
   local k = plugin_enabled(name) 
   if not k then 
-    return '🌟| تم تعطيل الملف ♻️\n➠ '..name..' ' 
+    return '🎅🏻| تم تعطيل الملف ♻️\n➠ '..name..' ' 
   end 
   table.remove(_config.enabled_plugins, k) 
   save_config( ) 
@@ -113,7 +113,7 @@ local function run(msg, matches)
   if (matches[1] == 'تحديث'  or matches[1]=="we") and is_sudo(msg) then --after changed to moderator mode, set only sudo 
   plugins = {} 
   load_plugins() 
-  return "🌟|تم تحديث الملفات💯 ♻️"
+  return "🎅🏻|تم تحديث الملفات💯 ♻️"
   end 
   ----------------
      if (matches[1] == "sp" or matches[1] == "جلب ملف") and is_sudo(msg) then 
@@ -129,7 +129,7 @@ sendDocument(msg.to.id, "./plugins/"..v..".lua", msg.id, "@SnAK_BoT")
 else
 local file = matches[2] 
   if not plugin_exists(file) then 
-    return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
+    return '🎅🏻| لا يوجد ملف بهذا الاسم ‼️ \n\n'
   else 
 send_msg(msg.to.id, 'انتضر عزيزي \nسـارسـل لـك الـمـلـف↜ '..matches[2]..'\nيـا '..(msg.from.first_name or "---")..'\n', msg.id, 'md')
 sendDocument(msg.to.id, "./plugins/"..file..".lua", msg.id, "@SnAK_BoT")
@@ -139,8 +139,8 @@ end
  
 if (matches[1] == "dp" or matches[1] == "حذف ملف")  and matches[2] and is_sudo(msg) then 
 disable_plugin(matches[2]) 
-if disable_plugin(matches[2]) == '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n' then
-return '🌟| لا يوجد ملف بهذا الاسم ‼️ \n\n'
+if disable_plugin(matches[2]) == '🎅🏻| لا يوجد ملف بهذا الاسم ‼️ \n\n' then
+return '🎅🏻| لا يوجد ملف بهذا الاسم ‼️ \n\n'
 else
 text = io.popen("rm -rf  plugins/".. matches[2]..".lua"):read('*all') 
 return 'تم حذف الملف \n↝ '..matches[2]..'\n يا '..(msg.from.first_name or "---")..'\n'
