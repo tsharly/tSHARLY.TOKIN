@@ -175,20 +175,20 @@ if not tostring(SUDO):match('%d+') then
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[*🌟| TSHARLY V1*
+    info_text = [[*🎅🏻| TSHARLY V1*
   
-🌟|سـورس تشــارلي الافـضل على التـلكَرام *TSHARLY*
+🎅🏻|سـورس تشــارلي الافـضل على التـلكَرام *TSHARLY*
 
-🌟|[GITHUB LINK](https://github.com/tsharly/tSHARLY.TOKIN)
+🎅🏻|[GITHUB LINK](https://github.com/tsharly/tSHARLY.TOKIN)
 
-_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
-_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
-_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
-_🌟|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🎅🏻|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🎅🏻|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🎅🏻|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
+_🎅🏻|Dev :_ [PHPLUA](Telegram.Me/PHPLUA)
 
-*🌟|CH TEAM :*
+*🎅🏻|CH TEAM :*
 
-🌟|[TSHARLY](Telegram.Me/DEVASL)
+🎅🏻|[TSHARLY](Telegram.Me/DEVASL)
 
 ]],
   }
